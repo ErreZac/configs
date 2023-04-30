@@ -174,11 +174,11 @@ XF86AudioLowerVolume
 
 #: raise brightness
 XF86MonBrightnessUp
-    /home/zac/Scripts/./brightness.sh + eDP-1
+    /home/zac/.config/sxhkd/scripts/brightness.sh + eDP-1
 
 #: lower brightness
 XF86MonBrightnessDown 
-    /home/zac/Scripts/./brightness.sh - eDP-1
+    /home/zac/.config/sxhkd/scripts/brightness.sh - eDP-1
 
 #: key brigthness up
 XF86KbdBrightnessUp 
