@@ -1,6 +1,7 @@
 /*
 
 !.gitignore
+!.tmux.conf
 
 !alacritty/
 alacritty/*
@@ -16,31 +17,13 @@ ranger/plugins
 !fish
 fish/*
 !fish/config.fish
-# GIMP
-# grammarly-languageserver
-# gtk-2.0
-# gtk-3.0
-# gtk-4.0
-# htop
+
 # hypr
-# inkscape
-# kconf_updaterc
-# kdeglobals
 # kitty
-# lazygit
-# leafpad
-# libfm
-# libreoffice
-# lsd
-# lvim
-# matplotlib
-# menus
-# Microsoft
-# Microsoft Teams - Preview
-# mimeapps.list
-# neofetch
-# nitrogen
-# nvim
+
+!nvim
+nvim/*.json
+
 # octave
 # okular.kmessagebox
 # okularpartrc
