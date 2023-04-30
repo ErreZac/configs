@@ -1,0 +1,9 @@
+/*
+
+!.gitignore
+
+!alacritty/
+alacritty/*
+!alacritty/alacritty.yml
+
+!picom/
