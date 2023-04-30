@@ -34,5 +34,5 @@ ranger/plugins
 # waybar
 !wezterm
 
-# zathura
+!zathura
 # zsh
