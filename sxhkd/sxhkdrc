@@ -20,7 +20,7 @@ super + shift + c
 
 #: toggle the bar
 super + b
-    /home/zac/.config/sxhkd/toggle_polybar.sh
+    /home/zac/.config/sxhkd/scripts/toggle_polybar.sh
 
 #: poweroff
 super + shift + ctrl + q
@@ -32,17 +32,17 @@ super + shift + ctrl + r
 
 #: scratchpad
 super + shift + Return
-    /home/zac/.config/sxhkd/scratchtermtoggle.sh
+    /home/zac/.config/sxhkd/scripts/scratchtermtoggle.sh
 
 #: screen locker
 super + shift + ctrl + l
 	slock
 
 XF86Launch1
-    /home/zac/.config/sxhkd/cycle_profiles.sh
+    /home/zac/.config/sxhkd/scripts/cycle_profiles.sh
 
 XF86Launch4
-    /home/zac/.config/sxhkd/toggle_fan_curve.sh
+    /home/zac/.config/sxhkd/scripts/toggle_fan_curve.sh
 
 #: }}}
 
@@ -54,7 +54,7 @@ super + m
 
 #: future windows will be floating
 super + shift + f
-    /home/zac/.config/sxhkd/toggle_floating_future.sh
+    /home/zac/.config/sxhkd/scripts/toggle_floating_future.sh
 
 #: set the window state
 super + {t,shift + t,f,shift + m}
@@ -74,7 +74,7 @@ super + {_,shift +} n
 
 #: smart move
 super + shift + {h,j,k,l}
-	/home/zac/.config/sxhkd/smart_move.sh {west,south,north,east}
+	/home/zac/.config/sxhkd/scripts/smart_move.sh {west,south,north,east}
 
 #: expand a window by moving one of its side outward
 super + ctrl + {h,j,k,l}
@@ -139,11 +139,11 @@ super + shift + i; {h,j,k,l}
 
 # kill all receptacles
 super + i; space
-    /home/zac/.config/sxhkd/kill_receptacles.sh
+    /home/zac/.config/sxhkd/scripts/kill_receptacles.sh
 
 # send this to the receptacle
 super + period
-    /home/zac/.config/sxhkd/send_to_receptacle.sh
+    /home/zac/.config/sxhkd/scripts/send_to_receptacle.sh
 #: }}}
 
 #: Spawn stuff {{{
