@@ -1,0 +1,235 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+#: WM keys {{{
+
+#: make sxhkd reload its configuration files: 
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#: quit bspwm
+super + shift + q
+	bspc quit
+
+#: restart bspwm
+super + shift + r
+	bspc wm -r
+
+#: close and kill
+super + shift + c 
+	bspc node -c
+
+#: toggle the bar
+super + b
+    /home/zac/.config/sxhkd/toggle_polybar.sh
+
+#: poweroff
+super + shift + ctrl + q
+	poweroff
+
+#: reboot
+super + shift + ctrl + r
+	reboot
+
+#: scratchpad
+super + shift + Return
+    /home/zac/.config/sxhkd/scratchtermtoggle.sh
+
+#: screen locker
+super + shift + ctrl + l
+	slock
+
+XF86Launch1
+    /home/zac/.config/sxhkd/cycle_profiles.sh
+
+XF86Launch4
+    /home/zac/.config/sxhkd/toggle_fan_curve.sh
+
+#: }}}
+
+#: Layouts and windows {{{
+
+#: alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+#: future windows will be floating
+super + shift + f
+    /home/zac/.config/sxhkd/toggle_floating_future.sh
+
+#: set the window state
+super + {t,shift + t,f,shift + m}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+#: set the node flags
+super + ctrl + {m,x,s,p}
+	bspc node -g {marked,locked,sticky,private}
+
+#: focus and move the node in the given direction
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# focus the next/previous window in the current desktop
+super + {_,shift +} n
+	bspc node -f {next,prev}.local.!hidden.window
+
+#: smart move
+super + shift + {h,j,k,l}
+	/home/zac/.config/sxhkd/smart_move.sh {west,south,north,east}
+
+#: expand a window by moving one of its side outward
+super + ctrl + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+#: contract a window by moving one of its side inward
+super + ctrl + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+#: move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#: gaps 
+
+super + {_,shift +} g
+    bspc config window_gap {0,15}
+
+#: }}}
+
+#: Desktops {{{
+#
+# focus the next/previous desktop in the current monitor
+super + {_, shift +} Tab
+	bspc desktop -f {next, prev}.local
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#: }}}
+
+#: Preselections {{{
+
+#: preselect the direction
+super + p; {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + p; {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + p; space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + p; shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#: }}}
+
+#: Receptacles {{{
+#
+# insert receptacle
+super + i; {h,j,k,l}
+    bspc node -p {west,south,north,east} -i 
+
+# insert big receptacle
+super + shift + i; {h,j,k,l}
+    bspc node @/ -p {west,south,north,east} -i 
+
+# kill all receptacles
+super + i; space
+    /home/zac/.config/sxhkd/kill_receptacles.sh
+
+# send this to the receptacle
+super + period
+    /home/zac/.config/sxhkd/send_to_receptacle.sh
+#: }}}
+
+#: Spawn stuff {{{
+
+#: terminal emulator
+super + Return
+    alacritty -e tmux new -As0
+
+#: program launcher
+super + @space
+	dmenu_run -m 0
+
+#: }}}
+
+#: Audio and monitor stuff {{{
+
+#: mute audio
+XF86AudioMute
+	amixer -D pulse sset Master toggle
+
+#: raise audio
+XF86AudioRaiseVolume
+	amixer -D pulse sset Master 5%+
+
+#: lower audio
+XF86AudioLowerVolume
+	amixer -D pulse sset Master 5%-
+
+#: raise brightness
+XF86MonBrightnessUp
+    /home/zac/Scripts/./brightness.sh + eDP-1
+
+#: lower brightness
+XF86MonBrightnessDown 
+    /home/zac/Scripts/./brightness.sh - eDP-1
+
+#: key brigthness up
+XF86KbdBrightnessUp 
+    asusctl -n
+
+#: key brigthness down
+XF86KbdBrightnessDown
+    asusctl -p
+
+#: }}}}
+
+
+#: Oldies {{{
+# send the newest marked node to the newest preselected node
+# super + y
+# 	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+# super + g
+# 	bspc node -s biggest.window
+
+#
+# focus the node for the given path jump
+# super + ctrl + {p,b,comma,period}
+# 	bspc node -f @{parent,brother,first,second}
+
+
+
+# focus the last node/desktop
+# super + {grave,Tab}
+# 	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+# super + {o,i}
+# 	bspc wm -h off; \
+# 	bspc node {older,newer} -f; \
+# 	bspc wm -h on
+
+
+#
+# preselect
+#
+
+
+
+
+
+#
+# move/resize
+#
+#: }}}
+
+
+
