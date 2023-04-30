@@ -7,10 +7,6 @@
 alacritty/*
 !alacritty/alacritty.yml
 
-!picom/
-!ranger/
-ranger/colorschemes
-ranger/plugins
 
 !bspwm
 
@@ -24,41 +20,19 @@ fish/*
 !nvim
 nvim/*.json
 
-# octave
-# okular.kmessagebox
-# okularpartrc
-# okularrc
-# omf
-# oomox
-# pavucontrol.ini
-# pcmanfm
-# picom
-# PlotJuggler
-# polybar
-# pulse
-# qt5ct
-# qt6ct
-# QtProject
-# QtProject.conf
-# ranger
-# starship.toml
-# sway
-# sxhkd
-# systemd
-# teams
-# tg
-# thefuck
-# tixeoclient
-# Unknown Organization
-# VirtualBox
-# vlc
+!picom/
+
+!polybar
+
+!ranger/
+ranger/colorschemes
+ranger/plugins
+
+!sway
+!sxhkd
+
 # waybar
-# wezterm
-# whatsapp-nativefier-d40211
-# wireshark
-# xournalpp
-# yay
+!wezterm
+
 # zathura
-# zoom.conf
-# zoomus.conf
 # zsh
