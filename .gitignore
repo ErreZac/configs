@@ -12,12 +12,10 @@ ranger/colorschemes
 ranger/plugins
 
 !bspwm
-# cef_user_data
-# cni
-# dconf
-# eProsima
-# fish
-# Foxit Software
+
+!fish
+fish/*
+!fish/config.fish
 # GIMP
 # grammarly-languageserver
 # gtk-2.0
