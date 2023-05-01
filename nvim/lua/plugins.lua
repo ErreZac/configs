@@ -314,6 +314,7 @@ require('lazy').setup({
     },
 
     'ggandor/lightspeed.nvim',
+    'tpope/vim-repeat',
 
     {'numToStr/Comment.nvim',
         config = function()
