@@ -2,6 +2,7 @@ require('lazy').setup({
     'tpope/vim-surround',
     'christoomey/vim-tmux-navigator',
     'vim-scripts/ReplaceWithRegister',
+    'mbbill/undotree',
 
     {'lervag/vimtex',
         config = function()
@@ -12,8 +13,6 @@ require('lazy').setup({
             vim.g.vimtex_syntax_enabled = 0
         end
     },
-
-    'mbbill/undotree',
 
     { 'folke/zen-mode.nvim',
         config = function()
@@ -35,12 +34,6 @@ require('lazy').setup({
         end,
     },
 
-    { 'shaunsingh/nord.nvim',
-    --     config = function()
-    --         vim.cmd[[colorscheme nord]]
-    --     end,
-    },
-
     { 'rose-pine/neovim', 
         as = 'rose-pine',
         config = function()
@@ -49,7 +42,6 @@ require('lazy').setup({
     },
 
     'nvim-treesitter/nvim-treesitter-textobjects'     ,
-
 
     { 'nvim-treesitter/nvim-treesitter',
         config = function()
@@ -130,7 +122,10 @@ require('lazy').setup({
     },
 
     'nvim-lua/plenary.nvim',
-    {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+
+    {'nvim-telescope/telescope-fzf-native.nvim', 
+        build = 'make' 
+    },
 
     {'nvim-telescope/telescope.nvim', 
         config = function()
@@ -141,7 +136,6 @@ require('lazy').setup({
                         override_generic_sorter = true,  -- override the generic sorter
                         override_file_sorter = true,     -- override the file sorter
                         case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                        -- the default case_mode is "smart_case"
                     }
                 }
             }
@@ -151,13 +145,10 @@ require('lazy').setup({
     
     { "nvim-telescope/telescope-file-browser.nvim", 
         config=function()
-            -- You don't need to set any of these options.
-            -- IMPORTANT!: this is only a showcase of how you can set default options!
             require("telescope").setup {
                 extensions = {
                     file_browser = {
                         theme = "ivy",
-                        -- disables netrw and use telescope-file-browser in its place
                         hijack_netrw = true,
                         mappings = {
                             ["i"] = {
@@ -170,8 +161,6 @@ require('lazy').setup({
                     },
                 },
             }
-            -- To get telescope-file-browser loaded and working with telescope,
-            -- you need to call load_extension, somewhere after setup function:
             require("telescope").load_extension "file_browser"
         end
     },
@@ -186,17 +175,15 @@ require('lazy').setup({
     {'hrsh7th/nvim-cmp',
         config = function()
             local cmp = require'cmp'
-
             cmp.setup({
                 snippet = {
-                    -- REQUIRED - you must specify a snippet engine
                     expand = function(args)
                         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                     end,
                 },
                 window = {
                     completion = cmp.config.window.bordered(),
-                    -- documentation = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
                 },
                 mapping = cmp.mapping.preset.insert({
                     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -217,7 +204,8 @@ require('lazy').setup({
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
                     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-                }, {
+                }, 
+                    {
                         { name = 'buffer' },
                     })
             })
@@ -315,19 +303,8 @@ require('lazy').setup({
     { "iurimateus/luasnip-latex-snippets.nvim",
         config = function()
             require'luasnip-latex-snippets'.setup({use_treesitter=true})
-            -- or setup({ use_treesitter = true })
         end,
         ft = "tex",
-    },
-
-    { 'nvim-neorg/neorg',
-        config = function()
-            require('neorg').setup {
-                load = {
-                    ["core.defaults"] = {}
-                }
-            }
-        end,
     },
 
     {'norcalli/nvim-colorizer.lua', 
