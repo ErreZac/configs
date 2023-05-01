@@ -4,6 +4,7 @@ xsetroot -cursor_name left_ptr
 picom &
 nitrogen --restore
 nm-applet &
+blueman-applet &
 env fish_tmux_autoconnect=false alacritty --class scratchterm&
 bspc rule -a scratchterm sticky=on state=floating hidden=on
 /bin/sh /home/zac/.config/polybar/launch.sh
