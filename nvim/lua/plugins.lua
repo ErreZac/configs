@@ -1,20 +1,28 @@
 require('lazy').setup({
-    'tpope/vim-surround',
+    {
+        "kylechui/nvim-surround",
+        version = "*",
+        event = "VeryLazy",
+        config = function() require("nvim-surround").setup({ }) end,
+    },
+
     'christoomey/vim-tmux-navigator',
     'vim-scripts/ReplaceWithRegister',
     'mbbill/undotree',
 
-    {'lervag/vimtex',
+    {
+        'lervag/vimtex',
         config = function()
             vim.g.vimtex_view_method = "zathura"
             vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
             vim.g.vimtex_compiler_method = "latexmk"
             vim.g.vimtex_indent_enabled = 0
             vim.g.vimtex_syntax_enabled = 0
-        end
+        end,
     },
 
-    { 'folke/zen-mode.nvim',
+    { 
+        'folke/zen-mode.nvim',
         config = function()
             require("zen-mode").setup {
                 window = {
@@ -24,7 +32,8 @@ require('lazy').setup({
         end,
     },
 
-    {'luisiacc/gruvbox-baby',
+    {
+        'luisiacc/gruvbox-baby',
         config = function()
             vim.g.gruvbox_baby_background_color="dark"
             vim.g.gruvbox_baby_telescope_theme = 1
@@ -34,7 +43,8 @@ require('lazy').setup({
         end,
     },
 
-    { 'rose-pine/neovim', 
+    { 
+        'rose-pine/neovim', 
         as = 'rose-pine',
         config = function()
             vim.cmd('colorscheme rose-pine')
@@ -43,7 +53,8 @@ require('lazy').setup({
 
     'nvim-treesitter/nvim-treesitter-textobjects'     ,
 
-    { 'nvim-treesitter/nvim-treesitter',
+    { 
+        'nvim-treesitter/nvim-treesitter',
         config = function()
             require('nvim-treesitter.configs').setup {
                 ensure_installed = {"lua", "c", "bash", "latex", "cpp", "rust"}, 
@@ -109,7 +120,8 @@ require('lazy').setup({
 
     'kyazdani42/nvim-web-devicons',
 
-    { 'nvim-tree/nvim-tree.lua',
+    { 
+        'nvim-tree/nvim-tree.lua',
         config = function()
             require("nvim-tree").setup({
                 update_focused_file = {
@@ -123,11 +135,13 @@ require('lazy').setup({
 
     'nvim-lua/plenary.nvim',
 
-    {'nvim-telescope/telescope-fzf-native.nvim', 
+    {
+        'nvim-telescope/telescope-fzf-native.nvim', 
         build = 'make' 
     },
 
-    {'nvim-telescope/telescope.nvim', 
+    {
+        'nvim-telescope/telescope.nvim', 
         config = function()
             require('telescope').setup {
                 extensions = {
@@ -143,7 +157,8 @@ require('lazy').setup({
         end
     },
     
-    { "nvim-telescope/telescope-file-browser.nvim", 
+    { 
+        "nvim-telescope/telescope-file-browser.nvim", 
         config=function()
             require("telescope").setup {
                 extensions = {
@@ -172,7 +187,8 @@ require('lazy').setup({
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
 
-    {'hrsh7th/nvim-cmp',
+    {
+        'hrsh7th/nvim-cmp',
         config = function()
             local cmp = require'cmp'
             cmp.setup({
@@ -279,7 +295,8 @@ require('lazy').setup({
         end
     },
 
-    {'simrat39/rust-tools.nvim', 
+    {
+        'simrat39/rust-tools.nvim', 
         config = function()
             require("rust-tools").setup({
                 tools = {
@@ -297,17 +314,19 @@ require('lazy').setup({
         end,
     },
 
-    {'L3MON4D3/LuaSnip'},
+    'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
 
-    { "iurimateus/luasnip-latex-snippets.nvim",
+    { 
+        "iurimateus/luasnip-latex-snippets.nvim",
         config = function()
             require'luasnip-latex-snippets'.setup({use_treesitter=true})
         end,
         ft = "tex",
     },
 
-    {'norcalli/nvim-colorizer.lua', 
+    {
+        'norcalli/nvim-colorizer.lua', 
         config = function()
             require'colorizer'.setup()
         end
@@ -316,13 +335,15 @@ require('lazy').setup({
     'ggandor/lightspeed.nvim',
     'tpope/vim-repeat',
 
-    {'numToStr/Comment.nvim',
+    {
+        'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
     },
 
-    {'lukas-reineke/indent-blankline.nvim',
+    {
+        'lukas-reineke/indent-blankline.nvim',
         config = function() 
             vim.opt.list = true
             vim.opt.listchars:append "eol:↴"
@@ -368,5 +389,26 @@ require('lazy').setup({
                 end,
             })
         end,
+    },
+
+    { 'Wansmer/treesj',
+        keys = { '<space>m', '<space>j', '<space>s' },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        config = function()
+            require('treesj').setup({
+                max_join_length = 5000,
+            })
+        end,
+    },
+
+    {
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup({
+                auto_open = true,
+                auto_close = true,
+            }) 
+
+        end
     }
 })
