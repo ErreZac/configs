@@ -30,6 +30,7 @@ ranger/plugins
 
 !sway
 !sxhkd
+!starship.toml
 
 # waybar
 !wezterm
