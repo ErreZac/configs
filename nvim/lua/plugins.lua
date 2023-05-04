@@ -8,7 +8,12 @@ require('lazy').setup({
 
     'christoomey/vim-tmux-navigator',
     'vim-scripts/ReplaceWithRegister',
-    'mbbill/undotree',
+    {
+        'mbbill/undotree',
+        config = function()
+            vim.api.nvim_set_keymap('n', '<leader>u', ':UndotreeToggle<CR>', {noremap = true})
+        end
+    },
 
     {
         'lervag/vimtex',
@@ -29,6 +34,7 @@ require('lazy').setup({
                     width = .65 -- width will be 85% of the editor width
                 }
             }
+            vim.api.nvim_set_keymap('n', '<C-z>', ':ZenMode<CR>', {noremap = true})
         end,
     },
 
@@ -130,6 +136,7 @@ require('lazy').setup({
                     ignore_list = {},
                 },
             })
+            vim.api.nvim_set_keymap('n', '<C-t>', ':NvimTreeToggle<CR>', {noremap = true})
         end,
     },
 
@@ -408,7 +415,7 @@ require('lazy').setup({
                 auto_open = true,
                 auto_close = true,
             }) 
-
+            vim.api.nvim_set_keymap('n', '<leader>tt', ':TroubleToggle<CR>', {noremap = true})
         end
     },
 

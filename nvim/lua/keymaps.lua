@@ -1,20 +1,11 @@
--- undo tree
-vim.api.nvim_set_keymap('n', '<C-u>', ':UndotreeToggle<CR>', {noremap = true})
-
 -- spelling
 vim.api.nvim_set_keymap('n', '<C-s>', ':setlocal spell! spelllang=en_us<CR>', {noremap = true})
-
--- nvim tree
-vim.api.nvim_set_keymap('n', '<C-t>', ':NvimTreeToggle<CR>', {noremap = true})
 
 -- select all
 vim.api.nvim_set_keymap('n', 'gV', '`[v`]', {noremap = true})
 
 -- esc removes last highlighted search
 vim.api.nvim_set_keymap('n', '<esc>', ':noh<return><esc>', {noremap = true})
-
--- zen mode toggle
-vim.api.nvim_set_keymap('n', '<C-z>', ':ZenMode<CR>', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<CR>', {noremap = true})
