@@ -156,6 +156,10 @@ super + Return
 super + @space
 	dmenu_run -m 0
 
+#: screenshots
+super + shift + p
+    scrot
+
 #: }}}
 
 #: Audio and monitor stuff {{{
