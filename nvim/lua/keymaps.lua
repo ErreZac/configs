@@ -27,13 +27,6 @@ vim.api.nvim_set_keymap('v', '<Down>', '<NOP>', {noremap = true})
 vim.api.nvim_set_keymap('v', '<Left>', '<NOP>', {noremap = true})
 vim.api.nvim_set_keymap('v', '<Right>', '<NOP>', {noremap = true})
 
--- telescope, cannot use it yet
-vim.api.nvim_set_keymap('n', '<leader>fF', '<cmd>Telescope find_files<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope file_browser<cr>", { noremap = true })
-
 -- some shitt I stole
 -- local opts = { noremap=true, silent=true }
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)

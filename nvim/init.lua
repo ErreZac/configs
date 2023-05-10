@@ -12,8 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('settings')
-require('keymaps')
 require('plugins')
+require('keymaps')
 
 -- stuff i don't remember what is for
 vim.g['&t_8f'] = "\\<Esc>[38;2;%lu;%lu;%lum"
