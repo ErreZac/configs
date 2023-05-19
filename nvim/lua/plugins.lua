@@ -7,6 +7,7 @@ require('lazy').setup({
     },
 
     'christoomey/vim-tmux-navigator',
+    'RyanMillerC/better-vim-tmux-resizer',
     'vim-scripts/ReplaceWithRegister',
     {
         'mbbill/undotree',
@@ -136,7 +137,7 @@ require('lazy').setup({
                     ignore_list = {},
                 },
             })
-            vim.api.nvim_set_keymap('n', '<leader>tt', ':NvimTreeToggle<CR>', {noremap = true})
+            vim.api.nvim_set_keymap('n', '<C-t>', ':NvimTreeToggle<CR>', {noremap = true})
         end,
     },
 
@@ -417,8 +418,8 @@ require('lazy').setup({
         "folke/trouble.nvim",
         config = function()
             require("trouble").setup({
-                auto_open = true,
-                auto_close = true,
+                auto_open = false,
+                auto_close = false,
             }) 
             vim.api.nvim_set_keymap('n', '<leader>dd', ':TroubleToggle<CR>', {noremap = true})
         end
@@ -436,7 +437,7 @@ require('lazy').setup({
             version = "*", 
             config = function()
                 require("toggleterm").setup{
-                    open_mapping = [[<C-t>]],
+                    open_mapping = [[<leader>tt]],
                     shade_terminals = false,
                 }
                 function _G.set_terminal_keymaps()
