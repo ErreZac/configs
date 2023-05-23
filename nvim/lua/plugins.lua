@@ -266,10 +266,10 @@ require('lazy').setup({
             require("lspconfig").pyright.setup{}
             -- require'lspconfig'.pylyzer.setup{}
 
-            require'lspconfig'.grammarly.setup{
-                filetypes = { "markdown", "tex" },
-                clientId = "client_HCS8BeaK7zvoWinvRRNG9n"
-            }
+            -- require'lspconfig'.grammarly.setup{
+            --     filetypes = { "markdown", "tex" },
+            --     clientId = "client_HCS8BeaK7zvoWinvRRNG9n"
+            -- }
 
             require('lspconfig')['rust_analyzer'].setup {
                 on_attach = on_attach,
@@ -443,7 +443,6 @@ require('lazy').setup({
                 function _G.set_terminal_keymaps()
                     local opts = {buffer = 0}
                     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-                    vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
                     vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
                     vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
                     vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
@@ -477,5 +476,14 @@ require('lazy').setup({
                 vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
             end
         }
+    },
+
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        config = function()
+            require("oil").setup()
+            vim.keymap.set("n", "<leader>-", require("oil").open, { desc = "Open parent directory" })
+        end
     }
 })
