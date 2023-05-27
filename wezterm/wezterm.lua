@@ -78,6 +78,7 @@ return {
         },
     },
     font = wezterm.font("Fira Code Nerd Font", {weight=Retina}),
+    harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
     font_size=20,
     leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 },
 
