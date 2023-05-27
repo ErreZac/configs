@@ -15,5 +15,6 @@ if status is-interactive
     if not set -q $WEZTERM_PANE
         set -x NVIM_LISTEN_ADDRESS "/tmp/nvim$WEZTERM_PANE"
     end
+    fzf_configure_bindings --variables=\ev
 end
 
