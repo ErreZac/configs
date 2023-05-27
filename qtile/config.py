@@ -49,7 +49,10 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "shift"], "p", lazy.spawn("scrot"), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "control", "shift"], "q", lazy.spawn("poweroff"), desc="Shutdown Qtile"),
+    Key([mod, "control", "shift"], "r", lazy.spawn("reboot"), desc="Shutdown Qtile"),
     Key([mod], "space", lazy.spawn("dmenu_run"), desc="Spawn dmenu"),
 
     Key([], "XF86Launch1", lazy.spawn("/home/zac/.config/sxhkd/scripts/cycle_profiles.sh"), desc=""),
