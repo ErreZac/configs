@@ -150,7 +150,9 @@ super + period
 
 #: terminal emulator
 super + Return
-    alacritty -e tmux new -As0
+    wezterm
+
+#alacritty -e tmux new -As0
 
 #: program launcher
 super + @space
