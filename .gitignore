@@ -23,6 +23,8 @@ nvim/*.json
 !picom/
 
 !polybar
+!qtile
+qtile/__pycache__
 
 !ranger/
 ranger/colorschemes
