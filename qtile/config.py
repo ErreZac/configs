@@ -34,6 +34,7 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod, "shift"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod], "b", lazy.hide_show_bar("top")),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -153,7 +154,7 @@ screens = [
             background="#191724",
             margin = [10, 15, 0, 15],
             # margin = [0, 0, 0, 0],
-            opacity = 1,
+            opacity = .85,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
