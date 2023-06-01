@@ -99,7 +99,9 @@ layouts = [
         brder_normal="#403d52", 
         border_width=2,
         margin_on_single=15,
+        # margin_on_single=0,
         margin=15
+        # margin=0,
         ),
     layout.Max(
         border_focus="#f6c177", 
@@ -140,16 +142,17 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.GenPollText(update_interval=1, func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_profile.sh").decode().replace("\n", "")),
                 widget.GenPollText(update_interval=1, func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_curve_status.sh").decode().replace("\n", "")),
-                widget.ThermalZone(fmt='Temp:{}'),
-                widget.Volume(emoji=False,fmt='Vol:{}', volumeapp = "pavucontrol"),
-                widget.Battery(format='Batt:{percent:2.0%}->{watt:.2f}W'),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.ThermalZone(fmt='{}'),
+                widget.Volume(emoji=False,fmt='{}', volumeapp = "pavucontrol"),
+                widget.Battery(format='{percent:2.0%}->{watt:.2f}W'),
+                widget.Clock(format=" %Y-%m-%d %a  %I:%M %p"),
                 widget.Systray(),
                 widget.Spacer(length=15),
             ],
             40,
             background="#191724",
             margin = [10, 15, 0, 15],
+            # margin = [0, 0, 0, 0],
             opacity = 1,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
