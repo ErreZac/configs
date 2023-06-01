@@ -11,7 +11,7 @@ def autostart():
     subprocess.Popen([home])
 
 mod = "mod4"
-terminal = "wezterm" 
+terminal = "kitty" 
 
 keys = [
     # Switch between windows
