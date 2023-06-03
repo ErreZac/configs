@@ -112,7 +112,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=15),
+                widget.Spacer(length=20),
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
                 # widget.Prompt(),
@@ -136,7 +136,7 @@ screens = [
                 widget.Systray(),
                 widget.Spacer(length=15),
             ],
-            40,
+            50,
             background="#191724",
             margin = [10, 15, 0, 15],
             # margin = [0, 0, 0, 0],
