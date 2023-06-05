@@ -3,9 +3,9 @@
 PROFILE="$(asusctl profile -p | awk '{print $4}')"
 
 if [ "$PROFILE" == "Quiet" ]; then
-    echo ""
+    echo " "
 elif [ "$PROFILE" == "Balanced" ]; then
-    echo ""
+    echo "  "
 elif [ "$PROFILE" == "Performance" ]; then
-    echo ""
+    echo "   "
 fi

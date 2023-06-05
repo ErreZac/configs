@@ -4,6 +4,7 @@ from libqtile.lazy import lazy
 import os
 import subprocess
 from libqtile import hook
+from stuff import left_slant, right_slant, right_half_slant, left_half_slant
 
 @hook.subscribe.startup_once
 def autostart():
@@ -33,11 +34,12 @@ keys = [
     Key([mod], "b", lazy.hide_show_bar("top")),
     Key( [mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack",),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod, "shift"], "Return", lazy.spawn("kitty -e nvim /home/zac/.config/conky/todo.md"), desc="Launch terminal"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "p", lazy.spawn("scrot"), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "control", "shift"], "q", lazy.spawn("poweroff"), desc="Shutdown Qtile"),
     Key([mod, "control", "shift"], "r", lazy.spawn("reboot"), desc="Shutdown Qtile"),
     Key([mod], "space", lazy.spawn("dmenu_run"), desc="Spawn dmenu"),
@@ -83,7 +85,7 @@ for i in groups:
 layouts = [
     layout.Columns(
         border_focus="#f6c177", 
-        brder_normal="#403d52", 
+        border_normal="#403d52", 
         border_width=2,
         margin_on_single=15,
         # margin_on_single=0,
@@ -92,11 +94,11 @@ layouts = [
         ),
     layout.Max(
         border_focus="#f6c177", 
-        brder_normal="#403d52", 
+        border_normal="#403d52", 
         ),
     layout.Floating(
         border_focus="#f6c177", 
-        brder_normal="#403d52", 
+        border_normal="#403d52", 
         border_width=2
         ),
 ]
@@ -104,7 +106,7 @@ layouts = [
 widget_defaults = dict(
     font="FiraCode Nerd Font",
     fontsize=24,
-    padding=6,
+    padding=0,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -112,34 +114,48 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=20),
-                widget.CurrentLayoutIcon(),
-                widget.GroupBox(),
+                widget.Spacer(length=5, background='#191724'),
+                widget.CurrentLayoutIcon(background='#191724'),
+                # left_slant(),
+                widget.GroupBox(background='#191724', padding = 4),
+                left_slant(),
                 # widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
+                widget.WindowName(scroll=True,width=900,background='#191724'),
+                left_slant(),
+                left_half_slant(),
+                widget.Spacer(length=bar.STRETCH),
+                # widget.Chord(
+                #     chords_colors={
+                #         "launch": ("#ff0000", "#ffffff"),
+                #     },
+                #     name_transform=lambda name: name.upper(),
+                # ),
                 # widget.TextBox("default config", name="default"),
                 # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.GenPollText(update_interval=1, func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_profile.sh").decode().replace("\n", "")),
-                widget.GenPollText(update_interval=1, func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_curve_status.sh").decode().replace("\n", "")),
-                widget.ThermalZone(fmt='{}'),
-                widget.Volume(emoji=False,fmt='{}', volumeapp = "pavucontrol"),
-                widget.Battery(format='{percent:2.0%}->{watt:.2f}W'),
-                widget.Clock(format=" %Y-%m-%d %a  %I:%M %p"),
-                widget.Systray(),
-                widget.Spacer(length=15),
+                right_half_slant(),
+                right_slant(),
+                widget.GenPollText(update_interval=1, padding=4, background='#191724', func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_profile.sh").decode().replace("\n", "")),
+                right_slant(),
+                widget.GenPollText(update_interval=1, padding=4, background='#191724', func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_curve_status.sh").decode().replace("\n", "")),
+                right_slant(),
+                widget.ThermalZone(fmt='{}', background='#191724', padding=4, fgcolor_crit='#eb6f92', fgcolor_high='#f6c177'),
+                right_slant(),
+                widget.Volume(emoji=False,fmt='{}', background='#191724', padding=4, volumeapp = "pavucontrol"),
+                right_slant(),
+                widget.Battery( background='#191724', padding=4,format='{percent:2.0%}  {watt:.2f}W' ),
+                right_slant(),
+                widget.Clock(format=" %Y-%m-%d %a  %I:%M %p", padding=4, background='#191724'),
+                right_slant(),
+                # widget.StatusNotifier(background='#191724'),
+                widget.Systray(background='#191724'),
+                widget.Spacer(length=5, background='#191724'),
             ],
             50,
-            background="#191724",
-            margin = [10, 15, 0, 15],
-            # margin = [0, 0, 0, 0],
+            background='#19172400',
+            # margin = [10, 15, 0, 15],
+            margin = [0, 0, 0, 0],
             opacity = .9,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
