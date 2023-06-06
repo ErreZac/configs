@@ -11,6 +11,7 @@ alacritty/*
 !bspwm
 
 !conky
+conky/todo.md
 
 !fish
 fish/*
