@@ -10,6 +10,8 @@ alacritty/*
 
 !bspwm
 
+!conky
+
 !fish
 fish/*
 !fish/config.fish
