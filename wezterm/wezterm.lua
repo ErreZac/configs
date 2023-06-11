@@ -45,6 +45,7 @@ return {
     hide_tab_bar_if_only_one_tab = true,
     window_decorations = "NONE",
     tab_bar_at_bottom = true,
+    adjust_window_size_when_changing_font_size = false,
     colors = {
         foreground = '#e0def4',
         background = '#191724',
@@ -79,7 +80,7 @@ return {
     },
     font = wezterm.font("Fira Code Nerd Font", {weight=Retina}),
     harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
-    font_size=20,
+    font_size=22,
     leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 },
 
         disable_default_key_bindings = true,
@@ -142,6 +143,9 @@ return {
             action = wezterm.action.ActivateTabRelative(-1),
 
         },
+        { key = '-', mods = 'CTRL', action = wezterm.action.DecreaseFontSize },
+        { key = '+', mods = 'CTRL', action = wezterm.action.IncreaseFontSize },
+        { key = '0', mods = 'CTRL', action = wezterm.action.ResetFontSize },
     -- move between split panes
     split_nav('move', 'h'),
     split_nav('move', 'j'),
