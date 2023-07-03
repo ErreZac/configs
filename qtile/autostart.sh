@@ -6,3 +6,4 @@ setxkbmap -option caps:escape
 nm-applet &
 blueman-applet &
 conky &
+asusctltray &

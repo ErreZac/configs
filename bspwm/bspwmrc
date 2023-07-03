@@ -5,6 +5,8 @@ picom &
 nitrogen --restore
 nm-applet &
 blueman-applet &
+conky &
+asusctltray &
 env fish_tmux_autoconnect=false alacritty --class scratchterm&
 bspc rule -a scratchterm sticky=on state=floating hidden=on
 /bin/sh /home/zac/.config/polybar/launch.sh
