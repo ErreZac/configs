@@ -23,7 +23,8 @@ def right_half_slant():
     return widget.TextBox(
             fontsize=42, 
             fmt=' ', 
-            background='#e0def400', 
+            # background='#403d52', #'#e0def400', 
+            background='#191724e6',
             foreground='#191724'
             )
 
@@ -31,7 +32,8 @@ def left_half_slant():
     return widget.TextBox(
             fontsize=42, 
             fmt=' ', 
-            background='#e0def400', 
+            # background='#403d52', #'#e0def400', 
+            background='#191724e6',
             foreground='#191724'
             )
 
@@ -39,7 +41,8 @@ def right_rev_slant():
     return widget.TextBox(
             fontsize=42, 
             fmt=' ', 
-            background='#e0def400', 
+            # background='#403d52', #'#e0def400', 
+            background='#191724e6',
             foreground='#191724'
             )
 
@@ -47,6 +50,7 @@ def left_rev_slant():
     return widget.TextBox(
             fontsize=42, 
             fmt=' ', 
-            background='#e0def400', 
+            # background='#403d52', #'#e0def400', 
+            background='#191724e6',
             foreground='#191724'
             )

@@ -12,7 +12,7 @@ def autostart():
     subprocess.Popen([home])
 
 mod = "mod4"
-terminal = "wezterm" 
+terminal = "kitty" 
 
 keys = [
     # Switch between windows
@@ -87,10 +87,10 @@ layouts = [
         border_focus="#f6c177", 
         border_normal="#403d52", 
         border_width=2,
-        margin_on_single=15,
-        # margin_on_single=0,
-        margin=15
-        # margin=0,
+        # margin_on_single=15,
+        margin_on_single=0,
+        # margin=15
+        margin=0,
         ),
     layout.Max(
         border_focus="#f6c177", 
@@ -152,11 +152,12 @@ screens = [
                 widget.Systray(background='#191724'),
                 widget.Spacer(length=5, background='#191724'),
             ],
-            50,
-            background='#19172400',
+            30,
+            # background='#403d52',
+            background='#191724e6',
             # margin = [10, 15, 0, 15],
             margin = [0, 0, 0, 0],
-            opacity = .9,
+            opacity = 1,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
