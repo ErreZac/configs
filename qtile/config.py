@@ -152,7 +152,7 @@ screens = [
                 widget.Systray(background='#191724'),
                 widget.Spacer(length=5, background='#191724'),
             ],
-            30,
+            40,
             # background='#403d52',
             background='#191724e6',
             # margin = [10, 15, 0, 15],
