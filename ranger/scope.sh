@@ -84,7 +84,7 @@ handle_extension() {
             ## Preview as text conversion
             odt2txt "${FILE_PATH}" && exit 5
             ## Preview as markdown conversion
-            pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+            # pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
             exit 1;;
         ods|odp)
             ## Preview as text conversion (unsupported by pandoc for markdown)
@@ -104,7 +104,7 @@ handle_extension() {
             w3m -dump "${FILE_PATH}" && exit 5
             lynx -dump -- "${FILE_PATH}" && exit 5
             elinks -dump "${FILE_PATH}" && exit 5
-            pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+            # pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
             ;;
 
         ## JSON
@@ -282,7 +282,7 @@ handle_mime() {
         ## uncommented other methods to preview those formats
         *wordprocessingml.document|*/epub+zip|*/x-fictionbook+xml)
             ## Preview as markdown conversion
-            pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
+            # pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
             exit 1;;
 
         ## XLS
