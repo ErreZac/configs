@@ -2,7 +2,7 @@
 
 PROFILE="$(asusctl profile -p | awk '{print $4}')"
 
-STATUS="$(asusctl fan-curve -m $PROFILE | grep enabled | awk '{print $3}')"
+STATUS="$(asusctl fan-curve -m $PROFILE | grep enabled | awk '{print $3}' | sed -n '1p')"
 
 if [ "$STATUS" == "true" ]; then
     asusctl fan-curve -m $PROFILE -e false
