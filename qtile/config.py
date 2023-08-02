@@ -120,7 +120,7 @@ screens = [
                 widget.GroupBox(background='#191724', padding = 4),
                 left_slant(),
                 # widget.Prompt(),
-                widget.WindowName(scroll=True,width=900,background='#191724'),
+                widget.WindowName(scroll=True,width=700,background='#191724'),
                 left_slant(),
                 left_half_slant(),
                 widget.Spacer(length=bar.STRETCH),
