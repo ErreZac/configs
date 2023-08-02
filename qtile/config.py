@@ -140,6 +140,8 @@ screens = [
                 right_slant(),
                 widget.GenPollText(update_interval=1, padding=4, background='#191724', func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_curve_status.sh").decode().replace("\n", "")),
                 right_slant(),
+                widget.GenPollText(update_interval=1, padding=4, background='#191724', func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_rpm.sh").decode().replace("\n", "")),
+                right_slant(),
                 widget.ThermalZone(fmt='{}', background='#191724', padding=4, fgcolor_crit='#eb6f92', fgcolor_high='#f6c177'),
                 right_slant(),
                 widget.Volume(emoji=False,fmt='{}', background='#191724', padding=4, volumeapp = "pavucontrol"),
