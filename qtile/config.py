@@ -4,7 +4,8 @@ from libqtile.lazy import lazy
 import os
 import subprocess
 from libqtile import hook
-from stuff import left_slant, right_slant, right_half_slant, left_half_slant
+from bar_slants import left_slant, right_slant, right_half_slant, left_half_slant
+from rose_pine import colorz
 
 @hook.subscribe.startup_once
 def autostart():
@@ -84,21 +85,21 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_focus="#f6c177", 
-        border_normal="#403d52", 
+        border_focus=colorz["yellow"],
+        border_normal=colorz["gray"],
         border_width=2,
         # margin_on_single=15,
         margin_on_single=0,
-        # margin=15
+        # margin=5
         margin=0,
         ),
     layout.Max(
-        border_focus="#f6c177", 
-        border_normal="#403d52", 
+        border_focus=colorz["yellow"]
+        border_normal=colorz["gray"], 
         ),
     layout.Floating(
-        border_focus="#f6c177", 
-        border_normal="#403d52", 
+        border_focus=colorz["yellow"]
+        border_normal=colorz["gray"], 
         border_width=2
         ),
 ]
@@ -114,13 +115,13 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=5, background='#191724'),
-                widget.CurrentLayoutIcon(background='#191724'),
+                widget.Spacer(length=5, background=colorz["black"]),
+                widget.CurrentLayoutIcon(background=colorz["black"]),
                 # left_slant(),
-                widget.GroupBox(background='#191724', padding = 4),
+                widget.GroupBox(background=colorz["black"], padding = 4),
                 left_slant(),
                 # widget.Prompt(),
-                widget.WindowName(scroll=True,width=700,background='#191724'),
+                widget.WindowName(scroll=True,width=700,background=colorz["black"]),
                 left_slant(),
                 left_half_slant(),
                 widget.Spacer(length=bar.STRETCH),
@@ -136,27 +137,27 @@ screens = [
                 # widget.StatusNotifier(),
                 right_half_slant(),
                 right_slant(),
-                widget.GenPollText(update_interval=1, padding=4, background='#191724', func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_profile.sh").decode().replace("\n", "")),
+                widget.GenPollText(update_interval=1, padding=4, background=colorz["black"], func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_profile.sh").decode().replace("\n", "")),
                 right_slant(),
-                widget.GenPollText(update_interval=1, padding=4, background='#191724', func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_curve_status.sh").decode().replace("\n", "")),
+                widget.GenPollText(update_interval=1, padding=4, background=colorz["black"], func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_curve_status.sh").decode().replace("\n", "")),
                 right_slant(),
-                widget.GenPollText(update_interval=1, padding=4, background='#191724', func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_rpm.sh").decode().replace("\n", "")),
+                widget.GenPollText(update_interval=1, padding=4, background=colorz["black"], func=lambda: subprocess.check_output("/home/zac/.config/polybar/get_fan_rpm.sh").decode().replace("\n", "")),
                 right_slant(),
-                widget.ThermalZone(fmt='{}', background='#191724', padding=4, fgcolor_crit='#eb6f92', fgcolor_high='#f6c177'),
+                widget.ThermalZone(fmt='{}', background=colorz["black"], padding=4, fgcolor_crit=colorz["red"], fgcolor_high=colorz["yellow"]),
                 right_slant(),
-                widget.Volume(emoji=False,fmt='{}', background='#191724', padding=4, volumeapp = "pavucontrol"),
+                widget.Volume(emoji=False,fmt='{}', background=colorz["black"], padding=4, volumeapp = "pavucontrol"),
                 right_slant(),
-                widget.Battery( background='#191724', padding=4,format='{percent:2.0%}  {watt:.2f}W' ),
+                widget.Battery( background=colorz["black"], padding=4,format='{percent:2.0%}  {watt:.2f}W' ),
                 right_slant(),
-                widget.Clock(format=" %Y-%m-%d %a  %I:%M %p", padding=4, background='#191724'),
+                widget.Clock(format=" %Y-%m-%d %a  %I:%M %p", padding=4, background=colorz["black"]),
                 right_slant(),
-                # widget.StatusNotifier(background='#191724'),
-                widget.Systray(background='#191724'),
-                widget.Spacer(length=5, background='#191724'),
+                # widget.StatusNotifier(background=colorz["black"]),
+                widget.Systray(background=colorz["black"]),
+                widget.Spacer(length=5, background=colorz["black"]),
             ],
             40,
-            # background='#403d52',
-            background='#191724e6',
+            # background=colorz["gray"]
+            background=colorz["black"] + "e6",
             # margin = [10, 15, 0, 15],
             margin = [0, 0, 0, 0],
             opacity = 1,
