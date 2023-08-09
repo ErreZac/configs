@@ -1,5 +1,5 @@
 colorz = {
-        "black": "#1f1d2e", 
+        "black": '#191724',
 	    "red": "#eb6f92",
 	    "green": "#31748f",
 	    "yellow": "#f6c177",
