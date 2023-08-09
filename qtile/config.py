@@ -94,11 +94,11 @@ layouts = [
         margin=0,
         ),
     layout.Max(
-        border_focus=colorz["yellow"]
+        border_focus=colorz["yellow"],
         border_normal=colorz["gray"], 
         ),
     layout.Floating(
-        border_focus=colorz["yellow"]
+        border_focus=colorz["yellow"],
         border_normal=colorz["gray"], 
         border_width=2
         ),
