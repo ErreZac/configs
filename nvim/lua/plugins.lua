@@ -30,6 +30,7 @@ require('lazy').setup({
     },
 
     'vim-scripts/ReplaceWithRegister',
+
     {
         'mbbill/undotree',
         config = function()
@@ -71,9 +72,10 @@ require('lazy').setup({
 
     { 
         'nvim-treesitter/nvim-treesitter',
+        lazy = false,
         config = function()
             require('nvim-treesitter.configs').setup {
-                ensure_installed = {"lua", "c", "bash", "latex", "cpp", "rust"}, 
+                ensure_installed = {"python", "lua", "c", "bash", "latex", "cpp", "rust"}, 
                 highlight = { enable = true },
                 indent = { enable = true },
                 incremental_selection = {
@@ -131,6 +133,7 @@ require('lazy').setup({
             }
             vim.opt.foldmethod = "indent"
             vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+            vim.cmd [[TSUpdate]]
         end,
     },
 
@@ -209,14 +212,16 @@ require('lazy').setup({
             require("mason").setup()
         end
     },
+
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup {
-                ensure_installed = { "pyright", "texlab", "lua_ls", "rust_analyzer" },
+                ensure_installed = { "clangd", "pyright", "texlab", "lua_ls", "rust_analyzer" },
             }
         end
     },
+
     {
         "neovim/nvim-lspconfig",
         config=function()
@@ -298,6 +303,7 @@ require('lazy').setup({
 
         end
     },
+
     'williamboman/nvim-lsp-installer',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
@@ -360,10 +366,10 @@ require('lazy').setup({
                         { name = 'cmdline' }
                     })
             })
-
-            -- Setup lspconfig.
         end
     },
+
+    { 'saadparwaiz1/cmp_luasnip' },
 
     {
         'simrat39/rust-tools.nvim', 
@@ -386,21 +392,27 @@ require('lazy').setup({
 
     {
         'L3MON4D3/LuaSnip',
+        after = 'nvim-cmp',
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+            "molleweide/LuaSnip-snippets.nvim",
+            "evesdropper/luasnip-latex-snippets.nvim",
+        },
         config = function()
             require("luasnip.loaders.from_vscode").lazy_load()
-        end
-    },
-
-    'saadparwaiz1/cmp_luasnip',
-    "rafamadriz/friendly-snippets",
-
-    { 
-        "iurimateus/luasnip-latex-snippets.nvim",
-        config = function()
-            require'luasnip-latex-snippets'.setup({use_treesitter=true})
         end,
-        ft = "tex",
     },
+
+
+    -- "rafamadriz/friendly-snippets",
+
+    -- { 
+    --     "iurimateus/luasnip-latex-snippets.nvim",
+    --     config = function()
+    --         require'luasnip-latex-snippets'.setup({use_treesitter=true})
+    --     end,
+    --     ft = "tex",
+    -- },
 
     {
         'norcalli/nvim-colorizer.lua', 
