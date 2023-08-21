@@ -11,6 +11,10 @@ alacritty/*
 
 !bspwm
 
+!coc
+extensions/
+memos.json
+
 !conky
 conky/todo.md
 
