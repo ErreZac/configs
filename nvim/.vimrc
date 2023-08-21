@@ -12,6 +12,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ericbn/vim-solarized'
 Plug 'mbbill/undotree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 imap jj <ESC>
@@ -41,7 +42,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 set hidden
-" set termguicolors
+set termguicolors
 set wildmenu
 
 " keymaps
@@ -66,5 +67,4 @@ vnoremap <Up> <NOP>
 vnoremap <Down> <NOP>
 vnoremap <Left> <NOP>
 vnoremap <Right> <NOP>
-
 
