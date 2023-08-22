@@ -1,6 +1,10 @@
 call plug#begin()
 Plug 'preservim/NERDTree'
 " Plug 'vim-airline/vim-airline'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'ap/vim-css-color'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'https://github.com/ap/vim-css-color'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -13,6 +17,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ericbn/vim-solarized'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rose-pine/vim'
 call plug#end()
 
 imap jj <ESC>
@@ -40,7 +45,7 @@ set clipboard=unnamed
 set clipboard+=unnamedplus
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme rosepine
 set hidden
 set termguicolors
 set wildmenu
