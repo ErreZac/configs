@@ -1,6 +1,5 @@
 call plug#begin()
 Plug 'preservim/NERDTree'
-" Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ap/vim-css-color'
@@ -22,16 +21,11 @@ Plug 'rose-pine/vim'
 Plug 'lervag/vimtex'
 call plug#end()
 
-imap jj <ESC>
+" settings
 
 set number
 set relativenumber
-" set cursorline
 set showcmd
-
-map localleader = " "
-map leader = " "
-
 set tabstop=4
 set expandtab
 set softtabstop=4
@@ -45,15 +39,18 @@ set incsearch
 set hlsearch
 set clipboard=unnamed
 set clipboard+=unnamedplus
+let g:lightline = {'colorscheme': 'rosepine', }
+set hidden
+set wildmenu
 syntax enable
 set background=dark
-set hidden
 set termguicolors
 colorscheme rosepine
-let g:lightline = {'colorscheme': 'rosepine', }
-set wildmenu
 
 " keymaps
+
+map localleader = " "
+map leader = " "
 
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
@@ -67,8 +64,8 @@ vnoremap <Up> <NOP>
 vnoremap <Down> <NOP>
 vnoremap <Left> <NOP>
 vnoremap <Right> <NOP>
-
-nnoremap <C-s> :setlocal spell! spelllang=en_us<CR>
+inoremap jj <ESC>
+cnoremap jj <ESC>
 nnoremap gV `[v`]
 nnoremap <esc> :noh<return><esc>
 nnoremap <Tab> :bnext<CR>
@@ -76,6 +73,7 @@ nnoremap <S-Tab> :bprevious<CR>
 nnoremap <leader>bd :bdelete<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-u> :UndotreeToggle<CR>
+nnoremap <C-s> :setlocal spell! spelllang=en_us<CR>
 
 " plugins
 
