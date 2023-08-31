@@ -27,6 +27,8 @@ Plug 'anufrievroman/vim-angry-reviewer'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'junegunn/vim-after-object'
 Plug 'zivyangll/git-blame.vim'
+Plug 'knubie/vim-kitty-navigator'
+Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 
 " settings
@@ -89,8 +91,14 @@ nnoremap <C-s> :setlocal spell! spelllang=en_us<CR>
 let g:vimtex_view_method = 'zathura'
 let g:AngryReviewerEnglish = 'american'
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+let g:asyncrun_open = 10
 
 " bindings
-"
+
 nnoremap <leader>ar :AngryReviewer<cr>
 nnoremap <Leader>gb :<C-u>call gitblame#echo()<CR>
+
+nnoremap <Leader>cb :AsyncRun cargo build --release<CR>
+nnoremap <Leader>cr :AsyncRun cargo run --release 
+nnoremap <Leader>pr :AsyncRun python %<CR>
+nnoremap <Leader>r :AsyncRun 
