@@ -53,8 +53,8 @@ colorscheme rosepine
 
 " keymaps
 
-map localleader = " "
-map leader = " "
+let maplocalleader = ","
+let mapleader = " "
 
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
