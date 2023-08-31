@@ -19,6 +19,10 @@ Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rose-pine/vim'
 Plug 'lervag/vimtex'
+" Plug 'bounceme/poppy.vim'
+Plug 'b4winckler/vim-angry'
+Plug 'itchyny/vim-cursorword'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 " settings
@@ -78,4 +82,3 @@ nnoremap <C-s> :setlocal spell! spelllang=en_us<CR>
 " plugins
 
 let g:vimtex_view_method = 'zathura'
-
