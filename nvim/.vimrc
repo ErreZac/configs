@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/NERDTree'
 Plug 'itchyny/lightline.vim'
 Plug 'rafi/awesome-vim-colorschemes'
@@ -19,14 +20,18 @@ Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rose-pine/vim'
 Plug 'lervag/vimtex'
-" Plug 'bounceme/poppy.vim'
 Plug 'b4winckler/vim-angry'
 Plug 'itchyny/vim-cursorword'
 Plug 'machakann/vim-highlightedyank'
+Plug 'anufrievroman/vim-angry-reviewer' 
+Plug 'coderifous/textobj-word-column.vim'
+Plug 'junegunn/vim-after-object'
+Plug 'zivyangll/git-blame.vim'
 call plug#end()
 
 " settings
 
+set encoding=UTF-8
 set number
 set relativenumber
 set showcmd
@@ -82,3 +87,10 @@ nnoremap <C-s> :setlocal spell! spelllang=en_us<CR>
 " plugins
 
 let g:vimtex_view_method = 'zathura'
+let g:AngryReviewerEnglish = 'american'
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+
+" bindings
+"
+nnoremap <leader>ar :AngryReviewer<cr>
+nnoremap <Leader>gb :<C-u>call gitblame#echo()<CR>
