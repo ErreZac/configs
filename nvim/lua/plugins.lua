@@ -3,7 +3,7 @@ require('lazy').setup({
         "kylechui/nvim-surround",
         version = "*",
         event = "VeryLazy",
-        config = function() require("nvim-surround").setup({ }) end,
+        config = function() require("nvim-surround").setup({}) end,
     },
 
     {
@@ -29,8 +29,6 @@ require('lazy').setup({
         end
     },
 
-    'vim-scripts/ReplaceWithRegister',
-
     {
         'mbbill/undotree',
         config = function()
@@ -46,17 +44,6 @@ require('lazy').setup({
             vim.g.vimtex_compiler_method = "latexmk"
             vim.g.vimtex_indent_enabled = 0
             vim.g.vimtex_syntax_enabled = 0
-        end,
-    },
-
-    {
-        'luisiacc/gruvbox-baby',
-        config = function()
-            vim.g.gruvbox_baby_background_color="dark"
-            vim.g.gruvbox_baby_telescope_theme = 1
-            vim.g.gruvbox_baby_transparent_mode = 1
-            vim.g.gruvbox_baby_use_original_palette = 1
-            -- vim.cmd[[colorscheme gruvbox-baby]]
         end,
     },
 
@@ -80,13 +67,13 @@ require('lazy').setup({
                 indent = { enable = true },
                 incremental_selection = {
                     enable = true,
-                    keymaps = {
-                        init_selection = '<c-space>',
-                        node_incremental = '<c-space>',
-                        -- TODO: I'm not sure for this one.
-                        scope_incremental = '<c-s>',
-                        node_decremental = '<c-backspace>',
-                    },
+                    -- keymaps = {
+                    --     init_selection = '<c-space>',
+                    --     node_incremental = '<c-space>',
+                    --     -- TODO: I'm not sure for this one.
+                    --     scope_incremental = '<c-s>',
+                    --     node_decremental = '<c-backspace>',
+                    -- },
                 },
                 textobjects = {
                     select = {
@@ -190,14 +177,6 @@ require('lazy').setup({
                     file_browser = {
                         theme = "ivy",
                         hijack_netrw = true,
-                        mappings = {
-                            ["i"] = {
-                                -- your custom insert mode mappings
-                            },
-                            ["n"] = {
-                                -- your custom normal mode mappings
-                            },
-                        },
                     },
                 },
             }
@@ -263,15 +242,12 @@ require('lazy').setup({
                     }
                 }
             }
-            -- Global mappings.
-            -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
             vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
-            -- Use LspAttach autocommand to only map the following keys
-            -- after the language server attaches to the current buffer
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('UserLspConfig', {}),
                 callback = function(ev)
@@ -403,17 +379,6 @@ require('lazy').setup({
         end,
     },
 
-
-    -- "rafamadriz/friendly-snippets",
-
-    -- { 
-    --     "iurimateus/luasnip-latex-snippets.nvim",
-    --     config = function()
-    --         require'luasnip-latex-snippets'.setup({use_treesitter=true})
-    --     end,
-    --     ft = "tex",
-    -- },
-
     {
         'norcalli/nvim-colorizer.lua', 
         config = function()
@@ -423,6 +388,10 @@ require('lazy').setup({
 
     'ggandor/lightspeed.nvim',
     'tpope/vim-repeat',
+
+    'itchyny/vim-cursorword',
+    'anufrievroman/vim-angry-reviewer',
+    'junegunn/vim-after-object',
 
     {
         'numToStr/Comment.nvim',
@@ -506,61 +475,4 @@ require('lazy').setup({
             vim.cmd[[let g:gitblame_enabled = 0]]
         end
     },
-
-    {
-        {
-            'akinsho/toggleterm.nvim', 
-            version = "*", 
-            config = function()
-                require("toggleterm").setup{
-                    open_mapping = [[<leader>tt]],
-                    shade_terminals = false,
-                }
-                function _G.set_terminal_keymaps()
-                    local opts = {buffer = 0}
-                    vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
-                    vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-                    vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-                    -- vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-                    vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-                    vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
-                end
-
-                -- if you only want these mappings for toggle term use term://*toggleterm#* instead
-                vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
-                local Terminal  = require('toggleterm.terminal').Terminal
-                local lazygit = Terminal:new({
-                    cmd = "lazygit",
-                    dir = "git_dir",
-                    direction = "float",
-                    -- function to run on opening the terminal
-                    on_open = function(term)
-                        vim.cmd("startinsert!")
-                        vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
-                    end,
-                    -- function to run on closing the terminal
-                    on_close = function(term)
-                        vim.cmd("startinsert!")
-                    end,
-                })
-
-                function _lazygit_toggle()
-                    lazygit:toggle()
-                end
-
-                vim.api.nvim_set_keymap("n", "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
-            end
-        }
-    },
-
-    {
-        'stevearc/oil.nvim',
-        opts = {},
-        config = function()
-            require("oil").setup()
-            vim.keymap.set("n", "<leader>-", require("oil").open, { desc = "Open parent directory" })
-        end
-    },
-
 })
