@@ -56,6 +56,7 @@ set wildmenu
 syntax enable
 set background=dark
 set termguicolors
+set mouse=a
 colorscheme rosepine
 
 " keymaps
@@ -89,6 +90,8 @@ nnoremap <C-s> :setlocal spell! spelllang=en_us<CR>
 " plugins
 
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
+let g:vimtex_compiler_method = "latexmk"
 let g:AngryReviewerEnglish = 'american'
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 let g:asyncrun_open = 10
@@ -102,3 +105,5 @@ nnoremap <Leader>cb :AsyncRun cargo build --release<CR>
 nnoremap <Leader>cr :AsyncRun cargo run --release 
 nnoremap <Leader>pr :AsyncRun python %<CR>
 nnoremap <Leader>r :AsyncRun 
+nnoremap <Leader>ll :VimtexCompile<CR>
+nnoremap <Leader>lv :VimtexView<CR>
