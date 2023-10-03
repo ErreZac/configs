@@ -58,7 +58,7 @@ set background=dark
 set termguicolors
 set mouse=a
 colorscheme rosepine
-
+set term=kitty
 " keymaps
 
 let maplocalleader = ","
@@ -96,6 +96,9 @@ let g:AngryReviewerEnglish = 'american'
 autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 let g:asyncrun_open = 10
 
+packadd termdebug
+let g:termdebugger="rust-gdb"
+
 " bindings
 
 nnoremap <leader>ar :AngryReviewer<cr>
@@ -107,3 +110,4 @@ nnoremap <Leader>pr :AsyncRun python %<CR>
 nnoremap <Leader>r :AsyncRun 
 nnoremap <Leader>ll :VimtexCompile<CR>
 nnoremap <Leader>lv :VimtexView<CR>
+autocmd filetype rs nnoremap <F6> :Termdebug %:r<CR><c-w>2j<c-w>L
