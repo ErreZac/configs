@@ -1,16 +1,31 @@
-## Papers
-[.] Revisioni paper IPD
-[ ] Review JMET cyber
-[ ] revisione paper JMET di rinze
+## Presentazione 25/10 SP
+[ ] Da fare tutto
+
+## ICMAS
+[ ] Presentazione ICMASS
 
 ## SAFENAV
-[.] gioca con docker
 [ ] scrivi avanzamento per bi weekly
 
+Bi-weekly meeting 2023-09-20
+
+Starting the analysis of optimization algorithms to identify the most suitable for SafeNav
+
+Preparation of the presentation for the 3rd GA in Nantes
+
+NA (summer holidays)
+
+Targets for the upcoming two weeks:
+
+Participation to the 3rd GA in Nantes
+
+
+Problems/risks and solutions:
+
+Others:
+
 ## Sabatino
-[ ] info su controllori di tipo nautico
-[ ] Meeting con Enrico
 
 ## Esami
-[ ] prepara esame di settembre
-idea: da risultati CEAS dimensionare qualche impianto e calcolare consumi vari
+[ ] Inserire data a calendario
+[ ] Prepara appello straordinario 27/10
