@@ -33,3 +33,5 @@ vim.opt.hidden = true
 vim.opt.termguicolors = true
 vim.opt.wildmenu = true
 
+vim.cmd('packadd termdebug')
+vim.cmd('let g:termdebugger="rust-gdb"')
