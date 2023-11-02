@@ -46,6 +46,10 @@ return {
     window_decorations = "NONE",
     tab_bar_at_bottom = true,
     adjust_window_size_when_changing_font_size = false,
+    default_cursor_style = 'BlinkingBlock',
+    cursor_blink_ease_in = "Constant",
+    cursor_blink_ease_out = "Constant",
+    cursor_blink_rate = 500,
     colors = {
         foreground = '#e0def4',
         background = '#191724',
