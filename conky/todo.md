@@ -1,31 +1,13 @@
-## Presentazione 25/10 SP
-[ ] Da fare tutto
-
 ## ICMAS
-[ ] Presentazione ICMASS
+[.] Presentazione ICMASS
 
 ## SAFENAV
 [ ] scrivi avanzamento per bi weekly
-
-Bi-weekly meeting 2023-09-20
-
-Starting the analysis of optimization algorithms to identify the most suitable for SafeNav
-
-Preparation of the presentation for the 3rd GA in Nantes
-
-NA (summer holidays)
-
-Targets for the upcoming two weeks:
-
-Participation to the 3rd GA in Nantes
-
-
-Problems/risks and solutions:
-
-Others:
+[ ] inizia a preparare i test
+[ ] scrivi report
+[ ] preparé l'application docker pour mon ami quentin
 
 ## Sabatino
+[.] fare piano di studi
+[x] reclutare su safenav 2/11
 
-## Esami
-[ ] Inserire data a calendario
-[ ] Prepara appello straordinario 27/10
