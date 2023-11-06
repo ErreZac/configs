@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap('n', '<esc>', ':noh<return><esc>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bd', ':Bdelete<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope neoclip<CR>', {noremap = true})
 
 -- guru mode for a greater good
 vim.api.nvim_set_keymap('i', '<Up>', '<NOP>', {noremap = true})
@@ -80,3 +81,4 @@ vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
 vim.keymap.set('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
 vim.keymap.set('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
 vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
+

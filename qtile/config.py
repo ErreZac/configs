@@ -13,7 +13,7 @@ def autostart():
     subprocess.Popen([home])
 
 mod = "mod4"
-terminal = "kitty" 
+terminal = "wezterm" 
 
 keys = [
     # Switch between windows
@@ -88,10 +88,10 @@ layouts = [
         border_focus=colorz["yellow"],
         border_normal=colorz["gray"],
         border_width=2,
-        # margin_on_single=15,
-        margin_on_single=0,
-        # margin=5
-        margin=0,
+        margin_on_single=5,
+        # margin_on_single=0,
+        margin=5
+        # margin=0,
         ),
     layout.Max(
         border_focus=colorz["yellow"],

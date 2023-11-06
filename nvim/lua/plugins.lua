@@ -51,6 +51,11 @@ require('lazy').setup({
         'rose-pine/neovim', 
         as = 'rose-pine',
         config = function()
+            require('rose-pine').setup({
+            --- @usage 'auto'|'main'|'moon'|'dawn'
+            variant = 'dawn',
+            bold_vert_split = true,
+            })
             vim.cmd('colorscheme rose-pine')
         end, 
     },
@@ -468,4 +473,14 @@ require('lazy').setup({
             vim.cmd[[let g:gitblame_enabled = 0]]
         end
     },
+
+    {"AckslD/nvim-neoclip.lua",
+    requires = {
+        {'nvim-telescope/telescope.nvim'},
+        {'kkharji/sqlite.lua', module = 'sqlite'},
+    },
+    config = function()
+        require('neoclip').setup()
+    end,
+}
 })

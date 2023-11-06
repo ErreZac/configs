@@ -35,7 +35,7 @@ set selection-clipboard clipboard
 #map <C-k> navigate previous
 #map <C-j> navigate next
 #
-#set font "FiraCode 20"
+set font "FiraCode 16"
 #
 ### zathurarc-dark
 ##set notification-error-bg       "#586e75" # base01  # seem not work
