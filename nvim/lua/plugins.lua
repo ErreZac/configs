@@ -53,7 +53,8 @@ require('lazy').setup({
         config = function()
             require('rose-pine').setup({
             --- @usage 'auto'|'main'|'moon'|'dawn'
-            variant = 'dawn',
+            -- variant = 'dawn',
+            variant = 'moon',
             bold_vert_split = true,
             })
             vim.cmd('colorscheme rose-pine')
