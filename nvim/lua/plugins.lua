@@ -476,12 +476,18 @@ require('lazy').setup({
     },
 
     {"AckslD/nvim-neoclip.lua",
-    requires = {
-        {'nvim-telescope/telescope.nvim'},
-        {'kkharji/sqlite.lua', module = 'sqlite'},
+        requires = {
+            {'nvim-telescope/telescope.nvim'},
+            {'kkharji/sqlite.lua', module = 'sqlite'},
+        },
+        config = function()
+            require('neoclip').setup()
+        end,
     },
-    config = function()
-        require('neoclip').setup()
-    end,
-}
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    }
 })
