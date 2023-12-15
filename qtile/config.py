@@ -5,7 +5,7 @@ import os
 import subprocess
 from libqtile import hook
 from bar_slants import left_slant, right_slant, right_half_slant, left_half_slant
-from rose_pine import colorz
+from rose_pine_moon import colorz
 
 @hook.subscribe.startup_once
 def autostart():
@@ -13,7 +13,7 @@ def autostart():
     subprocess.Popen([home])
 
 mod = "mod4"
-terminal = "wezterm" 
+terminal = "kitty" 
 
 keys = [
     # Switch between windows
@@ -88,9 +88,9 @@ layouts = [
         border_focus=colorz["yellow"],
         border_normal=colorz["gray"],
         border_width=2,
-        margin_on_single=5,
+        margin_on_single=10,
         # margin_on_single=0,
-        margin=5
+        margin=10
         # margin=0,
         ),
     layout.Max(
@@ -106,7 +106,7 @@ layouts = [
 
 widget_defaults = dict(
     font="FiraCode Nerd Font",
-    fontsize=24,
+    fontsize=22,
     padding=0,
 )
 extension_defaults = widget_defaults.copy()
@@ -155,7 +155,7 @@ screens = [
                 widget.Systray(background=colorz["black"]),
                 widget.Spacer(length=5, background=colorz["black"]),
             ],
-            40,
+            36,
             # background=colorz["gray"]
             background=colorz["black"] + "e6",
             # margin = [10, 15, 0, 15],

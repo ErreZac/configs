@@ -4,6 +4,6 @@ picom &
 nitrogen --restore
 setxkbmap -option caps:escape
 nm-applet &
-blueman-applet &
-conky &
-asusctltray &
+# blueman-applet &
+# conky &
+# asusctltray &

@@ -1,12 +1,13 @@
 from libqtile import widget
+from rose_pine_moon import colorz
 
 def right_slant():
     return widget.TextBox(
             fontsize=42, 
             padding=4,
             fmt='', 
-            background='#191724', 
-            foreground='#f6c177', 
+            background=colorz["black"], 
+            foreground=colorz["yellow"], 
             )
 
 def left_slant():
@@ -14,8 +15,8 @@ def left_slant():
             fontsize=42, 
             padding=4,
             fmt='', 
-            background='#191724', 
-            foreground='#f6c177', 
+            background=colorz["black"], 
+            foreground=colorz["yellow"], 
             )
 
 
@@ -23,34 +24,30 @@ def right_half_slant():
     return widget.TextBox(
             fontsize=42, 
             fmt=' ', 
-            # background='#403d52', #'#e0def400', 
-            background='#191724e6',
-            foreground='#191724'
+            background=colorz["black"] + "e6", 
+            foreground=colorz["black"], 
             )
 
 def left_half_slant():
     return widget.TextBox(
             fontsize=42, 
             fmt=' ', 
-            # background='#403d52', #'#e0def400', 
-            background='#191724e6',
-            foreground='#191724'
+            background=colorz["black"] + "e6", 
+            foreground=colorz["black"], 
             )
 
 def right_rev_slant():
     return widget.TextBox(
             fontsize=42, 
             fmt=' ', 
-            # background='#403d52', #'#e0def400', 
-            background='#191724e6',
-            foreground='#191724'
+            background=colorz["black"] + "e6", 
+            foreground=colorz["black"], 
             )
 
 def left_rev_slant():
     return widget.TextBox(
             fontsize=42, 
             fmt=' ', 
-            # background='#403d52', #'#e0def400', 
-            background='#191724e6',
-            foreground='#191724'
+            background=colorz["black"] + "e6", 
+            foreground=colorz["black"], 
             )
