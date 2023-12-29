@@ -13,7 +13,7 @@ def autostart():
     subprocess.Popen([home])
 
 mod = "mod4"
-terminal = "kitty" 
+terminal = "wezterm" 
 
 keys = [
     # Switch between windows
@@ -85,20 +85,20 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_focus=colorz["yellow"],
-        border_normal=colorz["gray"],
-        border_width=2,
+        border_focus=colorz["green"],
+        border_normal=colorz["lightblack"],
+        border_width=4,
         margin_on_single=10,
         # margin_on_single=0,
-        margin=10
+        margin=12
         # margin=0,
         ),
     layout.Max(
-        border_focus=colorz["yellow"],
+        border_focus=colorz["green"],
         border_normal=colorz["gray"], 
         ),
     layout.Floating(
-        border_focus=colorz["yellow"],
+        border_focus=colorz["green"],
         border_normal=colorz["gray"], 
         border_width=2
         ),
@@ -106,7 +106,7 @@ layouts = [
 
 widget_defaults = dict(
     font="FiraCode Nerd Font",
-    fontsize=22,
+    fontsize=24,
     padding=0,
 )
 extension_defaults = widget_defaults.copy()
@@ -115,7 +115,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=5, background=colorz["black"]),
+                widget.Spacer(length=25, background=colorz["black"]),
                 widget.CurrentLayoutIcon(background=colorz["black"]),
                 # left_slant(),
                 widget.GroupBox(background=colorz["black"], padding = 4),
@@ -153,13 +153,13 @@ screens = [
                 right_slant(),
                 # widget.StatusNotifier(background=colorz["black"]),
                 widget.Systray(background=colorz["black"]),
-                widget.Spacer(length=5, background=colorz["black"]),
+                widget.Spacer(length=25, background=colorz["black"]),
             ],
-            36,
+            40,
             # background=colorz["gray"]
             background=colorz["black"] + "e6",
-            # margin = [10, 15, 0, 15],
-            margin = [0, 0, 0, 0],
+            # margin = [12, 15, 0, 15],
+            margin = [5, 12, 5, 12],
             opacity = 1,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
