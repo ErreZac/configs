@@ -40,7 +40,7 @@ local function split_nav(resize_or_move, key)
 end
 
 return {
-    color_scheme = "rose-pine",
+    -- color_scheme = "rose-pine",
     use_fancy_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
     window_decorations = "NONE",
@@ -50,6 +50,7 @@ return {
     cursor_blink_ease_in = "Constant",
     cursor_blink_ease_out = "Constant",
     cursor_blink_rate = 500,
+    enable_wayland = true,
     colors = require('wezterm/lua/rose-pine-moon').colors(),
     font = wezterm.font("Fira Code Nerd Font", {weight=Retina}),
     harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
