@@ -55,7 +55,7 @@ require('lazy').setup({
             --- @usage 'auto'|'main'|'moon'|'dawn'
             -- variant = 'dawn',
             variant = 'moon',
-            bold_vert_split = true,
+            bold_vert_split = false,
             })
             vim.cmd('colorscheme rose-pine')
         end, 
@@ -484,10 +484,58 @@ require('lazy').setup({
             require('neoclip').setup()
         end,
     },
+
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
+    },
+
+    {
+        'simonmclean/triptych.nvim',
+        event = 'VeryLazy',
+        dependencies = {
+            'nvim-lua/plenary.nvim', -- required
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+        config = function() 
+            require 'triptych'.setup() 
+            vim.keymap.set('n', '<leader>r', ':Triptych<CR>', { silent = true })
+        end,
+
+    },
+
+    {
+        'akinsho/toggleterm.nvim', 
+        version = "*", 
+        config = function()
+            require'toggleterm'.setup {
+                shade_terminals = false
+            }
+            vim.cmd[[nnoremap <leader><return> :ToggleTerm<CR>]]
+            vim.cmd[[inoremap <leader><return> :ToggleTerm<CR>]]
+        end
+    },
+    {
+        'levouh/tint.nvim',
+        config = function()
+            require("tint").setup() --{
+                -- tint = -45,  -- Darken colors, use a positive value to brighten
+                -- saturation = 0.6,  -- Saturation to preserve
+                -- transforms = require("tint").transforms.SATURATE_TINT,  -- Showing default behavior, but value here can be predefined set of transforms
+                -- tint_background_colors = true,  -- Tint background portions of highlight groups
+                -- highlight_ignore_patterns = { "WinSeparator", "Status.*" },  -- Highlight group patterns to ignore, see `string.find`
+                -- window_ignore_function = function(winid)
+                --     local bufid = vim.api.nvim_win_get_buf(winid)
+                --     local buftype = vim.api.nvim_buf_get_option(bufid, "buftype")
+                --     local floating = vim.api.nvim_win_get_config(winid).relative ~= ""
+                --
+                --     -- Do not tint `terminal` or floating windows, tint everything else
+                --     return buftype == "terminal" or floating
+                -- end
+            -- })
+        end
     }
+
 })
