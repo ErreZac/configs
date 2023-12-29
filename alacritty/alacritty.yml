@@ -148,7 +148,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 9.5
+  size: 10
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -160,7 +160,7 @@ font:
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
+  # glyph_offset:
   #  x: 0
   #  y: 0
 
@@ -187,7 +187,7 @@ import:
   # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
   # - ~/.alacritty-colorscheme/themes/gruvbox_dark.yaml
   # - ~/.alacritty-colorscheme/themes/nord.yaml
-  - ~/.config/alacritty/alacritty/dist/rose-pine.yml
+  - ~/.config/alacritty/alacritty/dist/rose-pine-moon.yml
  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
