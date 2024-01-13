@@ -214,29 +214,29 @@ require('lazy').setup({
 
             require("lspconfig").pyright.setup{}
 
-            require('lspconfig')['rust_analyzer'].setup {
-                on_attach = on_attach,
-                settings = {
-                    ["rust-analyzer"] = {
-                        assist = {
-                            importMergeBehavior = "last",
-                            importPrefix = "by_self",
-                        },
-                        diagnostics = {
-                            disabled = { "unresolved-import" }
-                        },
-                        cargo = {
-                            loadOutDirsFromCheck = true
-                        },
-                        procMacro = {
-                            enable = true
-                        },
-                        checkOnSave = {
-                            command = "clippy"
-                        },
-                    }
-                }
-            }
+            -- require('lspconfig')['rust_analyzer'].setup {
+            --     on_attach = on_attach,
+            --     settings = {
+            --         ["rust-analyzer"] = {
+            --             assist = {
+            --                 importMergeBehavior = "last",
+            --                 importPrefix = "by_self",
+            --             },
+            --             diagnostics = {
+            --                 disabled = { "unresolved-import" }
+            --             },
+            --             cargo = {
+            --                 loadOutDirsFromCheck = true
+            --             },
+            --             procMacro = {
+            --                 enable = true
+            --             },
+            --             checkOnSave = {
+            --                 command = "clippy"
+            --             },
+            --         }
+            --     }
+            -- }
 
             require('lspconfig')['texlab'].setup {
                 capabilities = capabilities,
@@ -353,25 +353,31 @@ require('lazy').setup({
 
     { 'saadparwaiz1/cmp_luasnip' },
 
+    -- {
+    --     'simrat39/rust-tools.nvim', 
+    --     config = function()
+    --         require("rust-tools").setup({
+    --             tools = {
+    --                 runnables = {
+    --                     use_telescope = true,
+    --                 },
+    --                 inlay_hints = {
+    --                     auto = true,
+    --                     show_parameter_hints = false,
+    --                     parameter_hints_prefix = "",
+    --                     other_hints_prefix = "",
+    --                 },
+    --             },
+    --         })
+    --     end,
+    -- },
+    --
     {
-        'simrat39/rust-tools.nvim', 
-        config = function()
-            require("rust-tools").setup({
-                tools = {
-                    runnables = {
-                        use_telescope = true,
-                    },
-                    inlay_hints = {
-                        auto = true,
-                        show_parameter_hints = false,
-                        parameter_hints_prefix = "",
-                        other_hints_prefix = "",
-                    },
-                },
-            })
-        end,
+        'mrcjkb/rustaceanvim',
+        version = '^3', -- Recommended
+        ft = { 'rust' },
     },
-
+    
     {
         'L3MON4D3/LuaSnip',
         after = 'nvim-cmp',
@@ -517,25 +523,51 @@ require('lazy').setup({
             vim.cmd[[inoremap <leader><return> :ToggleTerm<CR>]]
         end
     },
+
     {
         'levouh/tint.nvim',
         config = function()
             require("tint").setup() --{
-                -- tint = -45,  -- Darken colors, use a positive value to brighten
-                -- saturation = 0.6,  -- Saturation to preserve
-                -- transforms = require("tint").transforms.SATURATE_TINT,  -- Showing default behavior, but value here can be predefined set of transforms
-                -- tint_background_colors = true,  -- Tint background portions of highlight groups
-                -- highlight_ignore_patterns = { "WinSeparator", "Status.*" },  -- Highlight group patterns to ignore, see `string.find`
-                -- window_ignore_function = function(winid)
-                --     local bufid = vim.api.nvim_win_get_buf(winid)
-                --     local buftype = vim.api.nvim_buf_get_option(bufid, "buftype")
-                --     local floating = vim.api.nvim_win_get_config(winid).relative ~= ""
-                --
-                --     -- Do not tint `terminal` or floating windows, tint everything else
-                --     return buftype == "terminal" or floating
-                -- end
+            -- tint = -45,  -- Darken colors, use a positive value to brighten
+            -- saturation = 0.6,  -- Saturation to preserve
+            -- transforms = require("tint").transforms.SATURATE_TINT,  -- Showing default behavior, but value here can be predefined set of transforms
+            -- tint_background_colors = true,  -- Tint background portions of highlight groups
+            -- highlight_ignore_patterns = { "WinSeparator", "Status.*" },  -- Highlight group patterns to ignore, see `string.find`
+            -- window_ignore_function = function(winid)
+            --     local bufid = vim.api.nvim_win_get_buf(winid)
+            --     local buftype = vim.api.nvim_buf_get_option(bufid, "buftype")
+            --     local floating = vim.api.nvim_win_get_config(winid).relative ~= ""
+            --
+            --     -- Do not tint `terminal` or floating windows, tint everything else
+            --     return buftype == "terminal" or floating
+            -- end
             -- })
         end
+    },
+
+    {
+        'nyngwang/NeoRoot.lua',
+        config = function()
+            require('neo-root').setup {
+                CUR_MODE = 2 -- 1 for file/buffer mode, 2 for proj-mode
+            }
+            local NOREF_NOERR_TRUNC = { noremap = true, silent = true, nowait = true }
+            vim.cmd'au BufEnter * NeoRoot'
+            vim.keymap.set('n', '<Leader>p', function() vim.cmd('NeoRootSwitchMode') end, NOREF_NOERR_TRUNC)
+            vim.keymap.set('n', '<Leader>pre', function() vim.cmd('NeoRootChange') end, NOREF_NOERR_TRUNC)
+        end
+    },
+    {
+        "HakonHarnes/img-clip.nvim",
+        event = "BufEnter",
+        -- opts = {
+            -- add options here
+            -- or leave it empty to use the default settings
+        -- },
+        -- keys = {
+            -- suggested keymap
+            -- { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
+        -- },
     }
 
 })
