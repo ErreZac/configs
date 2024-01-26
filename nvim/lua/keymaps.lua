@@ -3,6 +3,8 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':setlocal spell! spelllang=en_us<CR>', {n
 vim.api.nvim_set_keymap('n', '<leader>tl', ':colorscheme rose-pine-dawn<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>td', ':colorscheme rose-pine-moon<CR>', {noremap = true})
 
+vim.api.nvim_set_keymap('n', '<leader>md', ':MarkdownPreviewToggle<CR>', {noremap = true})
+
 -- select all
 vim.api.nvim_set_keymap('n', 'gV', '`[v`]', {noremap = true})
 

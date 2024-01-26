@@ -132,19 +132,19 @@ require('lazy').setup({
 
     'kyazdani42/nvim-web-devicons',
 
-    { 
-        'nvim-tree/nvim-tree.lua',
-        config = function()
-            require("nvim-tree").setup({
-                update_focused_file = {
-                    enable = true,
-                    update_cwd = true,
-                    ignore_list = {},
-                },
-            })
-            vim.api.nvim_set_keymap('n', '<C-t>', ':NvimTreeToggle<CR>', {noremap = true})
-        end,
-    },
+    -- { 
+    --     'nvim-tree/nvim-tree.lua',
+    --     config = function()
+    --         require("nvim-tree").setup({
+    --             update_focused_file = {
+    --                 enable = true,
+    --                 update_cwd = true,
+    --                 ignore_list = {},
+    --             },
+    --         })
+    --         vim.api.nvim_set_keymap('n', '<C-t>', ':NvimTreeToggle<CR>', {noremap = true})
+    --     end,
+    -- },
 
     'nvim-lua/plenary.nvim',
 
@@ -498,18 +498,49 @@ require('lazy').setup({
         build = function() vim.fn["mkdp#util#install"]() end,
     },
 
-    {
-        'simonmclean/triptych.nvim',
-        event = 'VeryLazy',
-        dependencies = {
-            'nvim-lua/plenary.nvim', -- required
-            'nvim-tree/nvim-web-devicons', -- optional
-        },
-        config = function() 
-            require 'triptych'.setup() 
-            vim.keymap.set('n', '<leader>r', ':Triptych<CR>', { silent = true })
-        end,
+    -- {
+    --     'simonmclean/triptych.nvim',
+    --     event = 'VeryLazy',
+    --     dependencies = {
+    --         'nvim-lua/plenary.nvim', -- required
+    --         'nvim-tree/nvim-web-devicons', -- optional
+    --     },
+    --     config = function() 
+    --         require 'triptych'.setup() 
+    --         vim.keymap.set('n', '<leader>r', ':Triptych<CR>', { silent = true })
+    --     end,
+    --
+    -- },
 
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("oil").setup({
+                -- use_default_keymaps = true,
+                keymaps = {
+                    ["g?"] = "actions.show_help",
+                    ["<CR>"] = "actions.select",
+                    ["<C-s>"] = "actions.select_vsplit",
+                    ["<C-h>"] = "actions.select_split",
+                    ["<C-t>"] = "actions.select_tab",
+                    ["<C-p>"] = "actions.preview",
+                    ["<C-c>"] = "actions.close",
+                    ["<C-l>"] = "actions.refresh",
+                    ["-"] = "actions.parent",
+                    ["_"] = "actions.open_cwd",
+                    ["`"] = "actions.cd",
+                    ["~"] = "actions.tcd",
+                    ["gs"] = "actions.change_sort",
+                    ["gx"] = "actions.open_external",
+                    ["g."] = "actions.toggle_hidden",
+                    ["g\\"] = "actions.toggle_trash",
+                },
+            })
+            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+        end
     },
 
     {
