@@ -13,7 +13,7 @@ def autostart():
     subprocess.Popen([home])
 
 mod = "mod4"
-terminal = "kitty" 
+terminal = "alacritty" 
 
 keys = [
     # Switch between windows
@@ -35,7 +35,7 @@ keys = [
     Key([mod], "b", lazy.hide_show_bar("top")),
     Key( [mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack",),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod, "shift"], "Return", lazy.spawn("kitty -e nvim /home/zac/.config/conky/todo.md"), desc="Launch terminal"),
+    Key([mod, "shift"], "Return", lazy.spawn("alacritty -e nvim /home/zac/.config/conky/todo.md"), desc="Launch terminal"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
