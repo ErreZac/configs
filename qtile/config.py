@@ -31,11 +31,16 @@ keys = [
     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod], "i", lazy.layout.grow()),
+    Key([mod], "m", lazy.layout.shrink()),
+    Key([mod], "n", lazy.layout.normalize()),
+    Key([mod], "o", lazy.layout.maximize()),
     Key([mod, "shift"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     Key([mod], "b", lazy.hide_show_bar("top")),
-    Key( [mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack",),
+    # Key( [mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack",),
+    # Key([mod, "control"], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod, "shift"], "Return", lazy.spawn(terminal + " -e nvim /home/zac/.config/conky/todo.md"), desc="Launch terminal"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod, "shift"], "Return", lazy.spawn("alacritty -e nvim /home/zac/.config/conky/todo.md"), desc="Launch terminal"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
@@ -43,7 +48,7 @@ keys = [
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "control", "shift"], "q", lazy.spawn("poweroff"), desc="Shutdown Qtile"),
     Key([mod, "control", "shift"], "r", lazy.spawn("reboot"), desc="Shutdown Qtile"),
-    Key([mod], "space", lazy.spawn("dmenu_run"), desc="Spawn dmenu"),
+    Key([mod], "space", lazy.spawn("rofi -show run -theme /home/zac/.config/rofi/rofi/rose-pine-moon.rasi"), desc="Spawn dmenu"),
 
     Key([], "XF86Launch1", lazy.spawn("/home/zac/.config/sxhkd/scripts/cycle_profiles.sh"), desc=""),
     Key([], "XF86Launch4", lazy.spawn("/home/zac/.config/sxhkd/scripts/toggle_fan_curve.sh"), desc=""),
@@ -84,29 +89,31 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(
-        border_focus=colorz["green"],
-        border_normal=colorz["lightblack"],
-        border_width=4,
-        margin_on_single=10,
-        # margin_on_single=0,
-        margin=12
-        # margin=0,
-        ),
     layout.Max(
         border_focus=colorz["green"],
         border_normal=colorz["gray"], 
+        margin=0
         ),
-    layout.Floating(
+    layout.MonadTall(
         border_focus=colorz["green"],
-        border_normal=colorz["gray"], 
-        border_width=2
+        border_normal=colorz["lightblack"],
+        border_width=2,
+        margin_on_single=0,
+        ratio=.55,
+        # margin_on_single=0,
+        margin=0,
+        # margin=0,
         ),
+    # layout.Floating(
+    #     border_focus=colorz["green"],
+    #     border_normal=colorz["gray"], 
+    #     border_width=2
+    #     ),
 ]
 
 widget_defaults = dict(
     font="FiraCode Nerd Font",
-    fontsize=24,
+    fontsize=22,
     padding=0,
 )
 extension_defaults = widget_defaults.copy()
@@ -115,7 +122,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=25, background=colorz["black"]),
+                widget.Spacer(length=5, background=colorz["black"]),
                 widget.CurrentLayoutIcon(background=colorz["black"]),
                 # left_slant(),
                 widget.GroupBox(background=colorz["black"], padding = 4),
@@ -153,13 +160,13 @@ screens = [
                 right_slant(),
                 # widget.StatusNotifier(background=colorz["black"]),
                 widget.Systray(background=colorz["black"]),
-                widget.Spacer(length=25, background=colorz["black"]),
+                widget.Spacer(length=5, background=colorz["black"]),
             ],
-            40,
+            30,
             # background=colorz["gray"]
             background=colorz["black"] + "e6",
-            # margin = [12, 15, 0, 15],
-            margin = [5, 12, 5, 12],
+            # margin = [5, 12, 5, 12],
+            margin = [0, 0, 0, 0],
             opacity = 1,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta

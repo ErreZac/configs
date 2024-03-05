@@ -52,10 +52,10 @@ require('lazy').setup({
         as = 'rose-pine',
         config = function()
             require('rose-pine').setup({
-            --- @usage 'auto'|'main'|'moon'|'dawn'
-            -- variant = 'dawn',
-            variant = 'moon',
-            bold_vert_split = false,
+                --- @usage 'auto'|'main'|'moon'|'dawn'
+                -- variant = 'dawn',
+                variant = 'moon',
+                bold_vert_split = false,
             })
             vim.cmd('colorscheme rose-pine')
         end, 
@@ -174,7 +174,7 @@ require('lazy').setup({
             vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope file_browser<cr>", { noremap = true })
         end
     },
-    
+
     { 
         "nvim-telescope/telescope-file-browser.nvim", 
         config=function()
@@ -377,7 +377,7 @@ require('lazy').setup({
         version = '^3', -- Recommended
         ft = { 'rust' },
     },
-    
+
     {
         'L3MON4D3/LuaSnip',
         after = 'nvim-cmp',
@@ -418,8 +418,8 @@ require('lazy').setup({
         config = function() 
             require("ibl").setup()
         end
-     },
-    
+    },
+
     {'nvim-lualine/lualine.nvim',
         config = function()
             require('lualine').setup {
@@ -592,13 +592,34 @@ require('lazy').setup({
         "HakonHarnes/img-clip.nvim",
         event = "BufEnter",
         -- opts = {
-            -- add options here
-            -- or leave it empty to use the default settings
+        -- add options here
+        -- or leave it empty to use the default settings
         -- },
         -- keys = {
-            -- suggested keymap
-            -- { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
+        -- suggested keymap
+        -- { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
         -- },
+    },
+    -- {
+    --   "https://git.sr.ht/~swaits/zellij-nav.nvim",
+    --   lazy = true,
+    --   event = "VeryLazy",
+    --   keys = {
+    --     { "<c-h>", "<cmd>ZellijNavigateLeft<cr>",  { silent = true, desc = "navigate left"  } },
+    --     { "<c-j>", "<cmd>ZellijNavigateDown<cr>",  { silent = true, desc = "navigate down"  } },
+    --     { "<c-k>", "<cmd>ZellijNavigateUp<cr>",    { silent = true, desc = "navigate up"    } },
+    --     { "<c-l>", "<cmd>ZellijNavigateRight<cr>", { silent = true, desc = "navigate right" } },
+    --   },
+    --   opts = {},
+    -- },
+    {
+        'Lilja/zellij.nvim',
+        -- If you want to configure the plugin
+        config = function()
+            require('zellij').setup({
+                path = "zellij", -- Zellij binary path
+                vimTmuxNavigatorKeybinds = true, -- Will set keybinds like <C-h> to left
+            })
+        end
     }
-
 })

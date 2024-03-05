@@ -4,6 +4,7 @@ if status is-interactive
 
     source /home/zac/Scripts/aliases.sh
     source /home/zac/Scripts/bashedits.sh
+
     export _JAVA_AWT_WM_NONREPARENTING=1
     pyenv init - | source
     fish_vi_key_bindings
@@ -16,5 +17,10 @@ if status is-interactive
         set -x NVIM_LISTEN_ADDRESS "/tmp/nvim$WEZTERM_PANE"
     end
     fzf_configure_bindings --variables=\ev
+    if not set -q TMUX
+        set -g TMUX tmux new-session -d -s base
+        eval $TMUX
+        tmux attach-session -d -t base
+    end
 end
 
