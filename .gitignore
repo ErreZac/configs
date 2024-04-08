@@ -22,8 +22,9 @@ conky/todo.md
 fish/*
 !fish/config.fish
 
-# hypr
-# kitty
+!hypr
+
+!kitty
 
 !nvim
 nvim/*.json
