@@ -51,7 +51,7 @@ return {
     cursor_blink_ease_out = "Constant",
     cursor_blink_rate = 500,
     enable_wayland = true,
-    colors = require('wezterm/lua/rose-pine-moon').colors(),
+    -- colors = require('wezterm/lua/rose-pine-moon').colors(),
     font = wezterm.font("Fira Code Nerd Font", {weight=Retina}),
     harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
     font_size=22,
