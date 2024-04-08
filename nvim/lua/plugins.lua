@@ -39,7 +39,7 @@ require('lazy').setup({
     {
         'lervag/vimtex',
         config = function()
-            vim.g.vimtex_view_method = "zathura"
+            vim.g.vimtex_view_method = "mupdf"
             vim.g.vimtex_view_general_options = "--unique file:@pdf\\#src:@line@tex"
             vim.g.vimtex_compiler_method = "latexmk"
             vim.g.vimtex_indent_enabled = 0
@@ -47,18 +47,32 @@ require('lazy').setup({
         end,
     },
 
-    { 
-        'rose-pine/neovim', 
-        as = 'rose-pine',
+    -- { 
+    --     'rose-pine/neovim', 
+    --     as = 'rose-pine',
+    --     config = function()
+    --         require('rose-pine').setup({
+    --             --- @usage 'auto'|'main'|'moon'|'dawn'
+    --             -- variant = 'dawn',
+    --             variant = 'moon',
+    --             bold_vert_split = false,
+    --         })
+    --         vim.cmd('colorscheme rose-pine')
+    --     end, 
+    -- },
+    --
+    {
+        "Mofiqul/adwaita.nvim",
+        lazy = false,
+        priority = 1000,
+
+        -- configure and set on startup
         config = function()
-            require('rose-pine').setup({
-                --- @usage 'auto'|'main'|'moon'|'dawn'
-                -- variant = 'dawn',
-                variant = 'moon',
-                bold_vert_split = false,
-            })
-            vim.cmd('colorscheme rose-pine')
-        end, 
+            vim.g.adwaita_darker = false             -- for darker version
+            -- vim.g.adwaita_disable_cursorline = true -- to disable cursorline
+            -- vim.g.adwaita_transparent = true        -- makes the background transparent
+            vim.cmd('colorscheme adwaita')
+        end
     },
 
     'nvim-treesitter/nvim-treesitter-textobjects'     ,
@@ -424,7 +438,7 @@ require('lazy').setup({
         config = function()
             require('lualine').setup {
                 options = {
-                    theme = auto,
+                    theme = "adwaita",
                     component_separators = '',
                     section_separators = { left = '', right = '' },
                 },
