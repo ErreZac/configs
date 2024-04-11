@@ -14,36 +14,23 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-# Recommends: foot
-set $term foot
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-# Recommends: rofi-wayland
-set $rofi_cmd rofi \
-        -terminal '$term'
-
-set $file_manager nautilus
-set $teams flatpak run com.github.IsmaelMartinez.teams_for_linux
-# Shows a combined list of the applications with desktop files and
-# executables from PATH.
-# TODO: add window with the next release of rofi-wayland
-#
-# set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
-
-set $menu "wofi --show run --gtk-dark"
+set $menu wofi --show=drun --lines=5 --prompt=""
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# Requires: desktop-backgrounds-compat, swaybg
-output * bg /usr/share/backgrounds/default-dark.png fill
+# output * bg /home/zac/.backgrounds/wallpapers/0019.jpg fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-  output eDP-1 resolution 2560x1440 position 0,0 scale 1
-  # output HDMI-A-1 resolution 1920x1080 position 0,0 scale 1
+output eDP-1 {
+    mode 2560x1440@120.000Hz
+}
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -52,9 +39,9 @@ output * bg /usr/share/backgrounds/default-dark.png fill
 # Example configuration:
 #
 # exec swayidle -w \
-# 	timeout 300 'swaylock -f -c 000000' \
-# 	timeout 600 'swaymsg "output * dpms off"' \
-#     resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -63,10 +50,6 @@ output * bg /usr/share/backgrounds/default-dark.png fill
 ### Input configuration
 #
 # Example configuration:
-input type:keyboard {
-    xkb_layout it
-    # xkb_options grp:rctrl_toggle
-}
 #
 #   input "2:14:SynPS/2_Synaptics_TouchPad" {
 #       dwt enabled
@@ -83,13 +66,13 @@ input type:keyboard {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec "alacritty -e tmux"
 
     # Kill focused window
     bindsym $mod+Shift+c kill
 
     # Start your launcher
-    bindsym $mod+Space exec $menu
+    bindsym $mod+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -103,7 +86,21 @@ input type:keyboard {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+Shift+Ctrl+q exec poweroff
+
+    # Brightness
+ 
+ 
+
+
+    bindsym --locked {
+        XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
+        XF86AudioLowerVolume exec "amixer -D pulse sset Master 5%-"
+        XF86AudioMute exec "amixer -D pulse sset Master toggle"
+        XF86MonBrightnessUp exec "/home/zac/Scripts/./brightness.sh + eDP-1"
+        XF86MonBrightnessDown exec "/home/zac/Scripts/./brightness.sh - eDP-1"
+        XF86KbdBrightnessUp exec "asusctl -n"
+        XF86KbdBrightnessDown exec "asusctl -n"
+    }
 #
 # Moving around:
 #
@@ -113,10 +110,10 @@ input type:keyboard {
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    # bindsym $mod+Left focus left
+    # bindsym $mod+Down focus down
+    # bindsym $mod+Up focus up
+    # bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
@@ -124,10 +121,10 @@ input type:keyboard {
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    # bindsym $mod+Shift+Left move left
+    # bindsym $mod+Shift+Down move down
+    # bindsym $mod+Shift+Up move up
+    # bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
@@ -173,13 +170,13 @@ input type:keyboard {
     bindsym $mod+m fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+f floating toggle
+    bindsym $mod+Shift+f floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+Shift+f focus mode_toggle
+    bindsym $mod+f focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    bindsym $mod+p focus parent
 #
 # Scratchpad:
 #
@@ -206,10 +203,10 @@ mode "resize" {
     bindsym $right resize grow width 10px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    # bindsym Left resize shrink width 10px
+    # bindsym Down resize grow height 10px
+    # bindsym Up resize shrink height 10px
+    # bindsym Right resize grow width 10px
 
     # Return to default mode
     bindsym Return mode "default"
@@ -217,54 +214,75 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# mediazz
-# bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
-# bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
-# bindsym XF86AudioMute exec "amixer sset Master toggle"
-# bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"
-# bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
-bindsym XF86KbdBrightnessUp exec "brightnessctl -d asus::kbd_backlight set +1"
-bindsym XF86KbdBrightnessDown  exec "brightnessctl -d asus::kbd_backlight set 1-"
-# bindsym XF86AudioMicMute exec "amixer set Capture toggle"
-
-
-
-# Include configs from Shift+3 locations:
-#  - /usr/share/sway/config.d
-#  - /etc/sway/config.d
-#  - $XDG_CONFIG_HOME/sway/config.d ($HOME/.config/sway/config.d)
 #
-# If multiple directories contain the files with the same name, the later
-# directory takes precedence; `$XDG_CONFIG_HOME/sway/config.d/20-swayidle.conf`
-# will always be loaded instead of `/usr/share/sway/config.d/20-swayidle.conf`
-# or `/etc/sway/config.d/20-swayidle.conf`
+# Status Bar:
 #
-# This mechanism permits overriding our default configuration per-system
-# (/etc) or per-user ($XDG_CONFIG_HOME) basis. Just create the file you
-# want to modify/override in the higher-level directory.
+# Read `man 5 sway-bar` for more information about this section.
+# bar {
+#     position top
 #
-# For example, to disable the default bar from Fedora configs, you'll need to
-#     $ echo -n > "$HOME/.config/sway/config.d/90-bar.conf"
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 #
-# Note the quoting, the $() and the arguments quoting. All the parts are equally
-# important to make the magic work. And if you want to learn the secret behind
-# the trick, it's all in the `wordexp(3)`.
-#
-include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
-exec wl-paste -t text --watch clipman store --no-persist
+include /etc/sway/config.d/*
 
-default_border pixel 2
-default_floating_border pixel 2
-font Shure Tech Mono Nerd Font 20
-gaps inner 0
-client.focused		#303030 #C0BFBC #000000 #C0BFBC #C0BFBC
-client.unfocused	#303030 #C0BFBC #000000 #C0BFBC #303030
-# titlebar_padding 1
-# titlebar_border_thickness 0
-# gaps outer 10 
+bar {
+     swaybar_command waybar
+}
 
-# Launch stuff
+input * {
+    xkb_layout "it"
+}
 
-bindsym $mod+Ctrl+f exec $file_manager
-bindsym $mod+Ctrl+t exec $teams
+default_border none
+default_floating_border none
+font pango:monospace 0
+titlebar_padding 1
+titlebar_border_thickness 0
+gaps inner 6
+
+# autostart
+
+exec_always swaybg -i /home/zac/.backgrounds/wallpapers/0310.jpg
+exec_always nm-applet
+
+set $opacity 0.9
+for_window [class=".*"] opacity $opacity
+for_window [app_id=".*"] opacity $opacity
+for_window [class=".*"]  border pixel 2
+for_window [app_id=".*"] border pixel 2
+smart_borders on
+
+for_window [class="TelegramDesktop"] opacity 1.0
+for_window [class="Xournalpp"] opacity 1.0
+for_window [class="okular"] opacity 1.0
+for_window [class="zathura"] opacity 1.0
+for_window [class="brave-browser"] opacity 1.0
+for_window [class="firefox"] opacity 1.0
+for_window [class="VirtualBox"] opacity 1.0
+
+set {
+  $accent #89b4fa
+  $red #f38ba8
+  $darkgray #313244
+}
+
+client.focused          $accent $accent $darkgray $accent $accent
+client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
+client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
+client.urgent           $red $red $accent $red $red
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'oomox-catppuccin'
+    gsettings set $gnome-schema icon-theme 'oomox-catppuccin'
+    gsettings set $gnome-schema font-name 'Fira Code Nerd Font 11'
+}
