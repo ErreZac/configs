@@ -37,7 +37,8 @@ set $menu "wofi --show run --gtk-dark"
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /usr/share/backgrounds/default-dark.png fill
+# output * bg /usr/share/backgrounds/default-dark.png fill
+output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #
 # Example configuration:
 #
@@ -258,8 +259,25 @@ default_border pixel 2
 default_floating_border pixel 2
 font Shure Tech Mono Nerd Font 20
 gaps inner 0
-client.focused		#303030 #C0BFBC #000000 #C0BFBC #C0BFBC
-client.unfocused	#303030 #C0BFBC #000000 #C0BFBC #303030
+client.focused		#ffffff #1E78E4 #ffffff #1E78E4 #1E78E4
+client.unfocused	#5e5c64 #5E5C64 #C0BFBC #5e5c64 #5e5c64
+        #241F31,
+        #C01C28,
+        #2EC27E,
+        #F5C211,
+        #1E78E4,
+        #9841BB,
+        #0AB9DC,
+        #C0BFBC,
+        #5E5C64,
+        #ED333B,
+        #57E389,
+        #F8E45C,
+        #51A1FF,
+        #C061CB,
+        #4FD2FD,
+        #F6F5F4
+
 # titlebar_padding 1
 # titlebar_border_thickness 0
 # gaps outer 10 

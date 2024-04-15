@@ -70,10 +70,19 @@ require('lazy').setup({
         config = function()
             vim.g.adwaita_darker = false             -- for darker version
             -- vim.g.adwaita_disable_cursorline = true -- to disable cursorline
-            vim.g.adwaita_transparent = true        -- makes the background transparent
+            vim.g.adwaita_transparent = false        -- makes the background transparent
             vim.cmd('colorscheme adwaita')
         end
     },
+--     { 
+--         "catppuccin/nvim", 
+--         name = "catppuccin", 
+--         priority = 1000, 
+--             config=function()
+-- require("catppuccin").setup()
+--                 vim.cmd[[colorscheme catppuccin-mocha]]
+--             end
+--         },
 
     'nvim-treesitter/nvim-treesitter-textobjects'     ,
 
@@ -82,7 +91,7 @@ require('lazy').setup({
         lazy = false,
         config = function()
             require('nvim-treesitter.configs').setup {
-                ensure_installed = {"python", "lua", "c", "bash", "latex", "cpp", "rust"}, 
+                ensure_installed = {"python", "lua", "c", "bash", "latex", "cpp", "rust", "json", "toml"}, 
                 highlight = { enable = true },
                 indent = { enable = true },
                 incremental_selection = {
@@ -438,7 +447,7 @@ require('lazy').setup({
         config = function()
             require('lualine').setup {
                 options = {
-                    theme = "adwaita",
+                    theme = "auto",
                     component_separators = '',
                     section_separators = { left = '', right = '' },
                 },

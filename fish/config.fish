@@ -13,7 +13,7 @@ if status is-interactive
     fish_vi_key_bindings
     # set -g theme_color_scheme "terminal-light"
     # set -g theme_color_scheme "gruvbox"
-    set -g theme_color_scheme terminal2-dark-black
+    # set -g theme_color_scheme terminal2-dark-black
     starship init fish | source
     # export CYCLONEDDS_HOME="/home/zac/Software/cyclonedds/install"
     if not set -q $WEZTERM_PANE
