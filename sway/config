@@ -37,8 +37,8 @@ set $menu "wofi --show run --gtk-dark"
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-# output * bg /usr/share/backgrounds/default-dark.png fill
-output * bg ~/.backgrounds/wallpapers/0119.jpg fill
+output * bg /usr/share/backgrounds/default-dark.png fill
+# output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #
 # Example configuration:
 #
@@ -168,7 +168,10 @@ input type:keyboard {
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+t layout tabbed
+    bindsym $mod+d layout splith
     bindsym $mod+e layout toggle split
+
+    workspace_layout tabbed
 
     # Make the current focus fullscreen
     bindsym $mod+m fullscreen
@@ -226,6 +229,7 @@ bindsym $mod+r mode "resize"
 # bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
 bindsym XF86KbdBrightnessUp exec "brightnessctl -d asus::kbd_backlight set +1"
 bindsym XF86KbdBrightnessDown  exec "brightnessctl -d asus::kbd_backlight set 1-"
+bindsym XF86Launch1  exec "/home/zac/.config/sway/cycle_profiles.sh"
 # bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
 
@@ -258,9 +262,9 @@ exec wl-paste -t text --watch clipman store --no-persist
 default_border pixel 2
 default_floating_border pixel 2
 font Shure Tech Mono Nerd Font 20
-gaps inner 0
-client.focused		#ffffff #1E78E4 #ffffff #1E78E4 #1E78E4
-client.unfocused	#5e5c64 #5E5C64 #C0BFBC #5e5c64 #5e5c64
+gaps inner 20
+client.focused		#C0BFBC #303030 #ffffff #C0BFBC #C0BFBC
+client.unfocused	#5e5c64 #1e1e1e #C0BFBC #242424 #242424
         #241F31,
         #C01C28,
         #2EC27E,
