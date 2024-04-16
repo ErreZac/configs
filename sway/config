@@ -265,6 +265,8 @@ font Shure Tech Mono Nerd Font 20
 gaps inner 20
 client.focused		#C0BFBC #303030 #ffffff #C0BFBC #C0BFBC
 client.unfocused	#5e5c64 #1e1e1e #C0BFBC #242424 #242424
+        #1e1e1e
+        #ffffff
         #241F31,
         #C01C28,
         #2EC27E,

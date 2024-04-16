@@ -22,6 +22,10 @@ conky/todo.md
 fish/*
 !fish/config.fish
 
+!foot
+
+!fuzzel
+
 !hypr
 
 !kitty
@@ -40,6 +44,7 @@ ranger/colorschemes
 ranger/plugins
 
 !sway
+
 !sxhkd
 !starship.toml
 
