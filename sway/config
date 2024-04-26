@@ -31,7 +31,8 @@ set $teams flatpak run com.github.IsmaelMartinez.teams_for_linux
 #
 # set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
-set $menu "wofi --show run --gtk-dark"
+# set $menu "wofi --show run --gtk-dark"
+set $menu "fuzzel"
 
 ### Output configuration
 #
