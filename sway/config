@@ -15,7 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 # Recommends: foot
-set $term foot
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -38,7 +38,8 @@ set $menu "fuzzel"
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /usr/share/backgrounds/default-dark.png fill
+# output * bg /usr/share/backgrounds/default-dark.png fill
+output * bg /home/zac/.backgrounds/wallpapers/0013.jpg fill
 # output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #
 # Example configuration:
@@ -232,6 +233,7 @@ bindsym XF86KbdBrightnessUp exec "brightnessctl -d asus::kbd_backlight set +1"
 bindsym XF86KbdBrightnessDown  exec "brightnessctl -d asus::kbd_backlight set 1-"
 bindsym XF86Launch1  exec "/home/zac/.config/sway/cycle_profiles.sh"
 # bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
 
 
 
@@ -264,8 +266,19 @@ default_border pixel 2
 default_floating_border pixel 2
 font Shure Tech Mono Nerd Font 20
 gaps inner 20
-client.focused		#C0BFBC #303030 #ffffff #C0BFBC #C0BFBC
-client.unfocused	#5e5c64 #1e1e1e #C0BFBC #242424 #242424
+# class             border  bground text    indicator child_border
+client.focused		#ffffff #5E5C64 #ffffff #241F31 #ffffff
+client.unfocused	#5E5C64 #241F31 #C0BFBC #5E5C64 #5E5C64
+client.focused_inactive	#5E5C64 #241F31 #C0BFBC #241F31 #5E5C64
+
+# class                 border  bground text    indicator child_border
+# client.focused          $yellow $yellow $fg     $yellow   $yellow
+# client.focused_inactive $bg_2   #5F676A $fg     #484E50   #5F676A
+# client.unfocused        $bg_2   #241F31 #C0BFBC #241F31 #241F31
+# client.urgent           #2F343A #CC241D $fg_1   #CC241D   #CC241D
+# client.placeholder      #1D2021 #0C0C0C $fg      #000000   #0C0C0C
+
+
         #1e1e1e
         #ffffff
         #241F31,

@@ -5,8 +5,9 @@ if status is-interactive
     # source /home/zac/Scripts/aliases.sh
     # source /home/zac/Scripts/bashedits.sh
     alias vim=nvim
-    alias r=ranger
+    # alias r=ranger
     alias lg=lazygit
+    alias r='ranger --choosedir=$HOME/.rangerdir; set LASTDIR $(cat $HOME/.rangerdir); cd "$LASTDIR"'
 
     export _JAVA_AWT_WM_NONREPARENTING=1
     # pyenv init - | source
@@ -20,10 +21,10 @@ if status is-interactive
         set -x NVIM_LISTEN_ADDRESS "/tmp/nvim$WEZTERM_PANE"
     end
     # fzf_configure_bindings --variables=\ev
-    if not set -q TMUX
-        set -g TMUX tmux new-session -d -s base
-        eval $TMUX
-        tmux attach-session -d -t base
-    end
+    # if not set -q TMUX
+    #     set -g TMUX tmux new-session -d -s base
+    #     eval $TMUX
+    #     tmux attach-session -d -t base
+    # end
 end
 

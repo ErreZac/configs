@@ -3,7 +3,7 @@ require('lazy').setup({
         "kylechui/nvim-surround",
         version = "*",
         event = "VeryLazy",
-        config = function() require("nvim-surround").setup({}) end,
+        config = function() require("nvim-surround").setup({ }) end,
     },
 
     {
@@ -47,20 +47,34 @@ require('lazy').setup({
         end,
     },
 
-    -- { 
-    --     'rose-pine/neovim', 
-    --     as = 'rose-pine',
-    --     config = function()
-    --         require('rose-pine').setup({
-    --             --- @usage 'auto'|'main'|'moon'|'dawn'
-    --             -- variant = 'dawn',
-    --             variant = 'moon',
-    --             bold_vert_split = false,
-    --         })
-    --         vim.cmd('colorscheme rose-pine')
-    --     end, 
-    -- },
-    --
+    { 
+        'rose-pine/neovim', 
+        as = 'rose-pine',
+        config = function()
+            require('rose-pine').setup({
+                --- @usage 'auto'|'main'|'moon'|'dawn'
+                -- variant = 'dawn',
+                variant = 'moon',
+                bold_vert_split = false,
+            styles = {
+                bold = true,
+                italic = true,
+                transparency = true,
+            },
+            })
+            -- vim.cmd('colorscheme rose-pine')
+        end, 
+    },
+-- { 
+--         "ellisonleao/gruvbox.nvim", 
+--         priority = 1000 , 
+--         contrast = "hard", -- can be "hard", "soft" or empty string
+--         config = function()
+--             vim.o.background = "dark" -- or "light" for light mode
+--             vim.cmd([[colorscheme gruvbox]])
+--         end
+--     },
+
     {
         "Mofiqul/adwaita.nvim",
         lazy = false,
@@ -74,6 +88,7 @@ require('lazy').setup({
             vim.cmd('colorscheme adwaita')
         end
     },
+    --
 --     { 
 --         "catppuccin/nvim", 
 --         name = "catppuccin", 
@@ -435,15 +450,16 @@ require('lazy').setup({
         end
     },
 
-    {
-        'lukas-reineke/indent-blankline.nvim',
-        main = "ibl",
-        config = function() 
-            require("ibl").setup()
-        end
-    },
+--   {
+--       'lukas-reineke/indent-blankline.nvim',
+--       main = "ibl",
+--       config = function() 
+--           require("ibl").setup()
+--       end
+--   },
 
-    {'nvim-lualine/lualine.nvim',
+    {
+        'nvim-lualine/lualine.nvim',
         config = function()
             require('lualine').setup {
                 options = {
