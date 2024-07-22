@@ -39,7 +39,7 @@ set $menu "fuzzel"
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
 # output * bg /usr/share/backgrounds/default-dark.png fill
-output * bg /home/zac/.backgrounds/wallpapers/0013.jpg fill
+output * bg /home/zac/.backgrounds/wallpapers/0074.jpg fill
 # output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #
 # Example configuration:
