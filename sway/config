@@ -39,7 +39,8 @@ set $menu "fuzzel"
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
 # output * bg /usr/share/backgrounds/default-dark.png fill
-output * bg /home/zac/.backgrounds/wallpapers/0074.jpg fill
+output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
+# output * bg /home/zac/.backgrounds/wallpapers/download.jpeg fill
 # output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #
 # Example configuration:
@@ -264,7 +265,7 @@ exec wl-paste -t text --watch clipman store --no-persist
 
 default_border pixel 2
 default_floating_border pixel 2
-font Shure Tech Mono Nerd Font 20
+font JetBrains Mono Nerd Font 20
 gaps inner 20
 # class             border  bground text    indicator child_border
 client.focused		#ffffff #5E5C64 #ffffff #241F31 #ffffff
