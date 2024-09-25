@@ -50,14 +50,14 @@ set incsearch
 set hlsearch
 set clipboard=unnamed
 set clipboard+=unnamedplus
-let g:lightline = {'colorscheme': 'rosepine_moon', }
+" let g:lightline = {'colorscheme': 'rosepine_moon', }
 set hidden
 set wildmenu
 syntax enable
 set background=dark
 set termguicolors
 set mouse=a
-colorscheme rosepine_moon
+" colorscheme rosepine_moon
 set term=kitty
 " keymaps
 

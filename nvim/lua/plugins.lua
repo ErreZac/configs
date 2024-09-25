@@ -1,5 +1,4 @@
-require('lazy').setup({
-    {
+require('lazy').setup({ {
         "kylechui/nvim-surround",
         version = "*",
         event = "VeryLazy",
@@ -47,33 +46,24 @@ require('lazy').setup({
         end,
     },
 
-    { 
-        'rose-pine/neovim', 
-        as = 'rose-pine',
-        config = function()
-            require('rose-pine').setup({
-                --- @usage 'auto'|'main'|'moon'|'dawn'
-                -- variant = 'dawn',
-                variant = 'moon',
-                bold_vert_split = false,
-            styles = {
-                bold = true,
-                italic = true,
-                transparency = true,
-            },
-            })
-            -- vim.cmd('colorscheme rose-pine')
-        end, 
-    },
--- { 
---         "ellisonleao/gruvbox.nvim", 
---         priority = 1000 , 
---         contrast = "hard", -- can be "hard", "soft" or empty string
---         config = function()
---             vim.o.background = "dark" -- or "light" for light mode
---             vim.cmd([[colorscheme gruvbox]])
---         end
---     },
+    -- { 
+    --     'rose-pine/neovim', 
+    --     as = 'rose-pine',
+    --     config = function()
+    --         require('rose-pine').setup({
+    --             --- @usage 'auto'|'main'|'moon'|'dawn'
+    --             -- variant = 'dawn',
+    --             variant = 'moon',
+    --             bold_vert_split = false,
+    --         styles = {
+    --             bold = true,
+    --             italic = true,
+    --             transparency = true,
+    --         },
+    --         })
+    --         -- vim.cmd('colorscheme rose-pine')
+    --     end, 
+    -- },
 
     {
         "Mofiqul/adwaita.nvim",
@@ -88,16 +78,6 @@ require('lazy').setup({
             vim.cmd('colorscheme adwaita')
         end
     },
-    --
---     { 
---         "catppuccin/nvim", 
---         name = "catppuccin", 
---         priority = 1000, 
---             config=function()
--- require("catppuccin").setup()
---                 vim.cmd[[colorscheme catppuccin-mocha]]
---             end
---         },
 
     'nvim-treesitter/nvim-treesitter-textobjects'     ,
 
@@ -152,7 +132,7 @@ require('lazy').setup({
                         },
                     },
                     swap = {
-                        enable = true,
+                        enable = false,
                         swap_next = {
                             ['<leader>a'] = '@parameter.inner',
                         },
@@ -169,20 +149,6 @@ require('lazy').setup({
     },
 
     'kyazdani42/nvim-web-devicons',
-
-    -- { 
-    --     'nvim-tree/nvim-tree.lua',
-    --     config = function()
-    --         require("nvim-tree").setup({
-    --             update_focused_file = {
-    --                 enable = true,
-    --                 update_cwd = true,
-    --                 ignore_list = {},
-    --             },
-    --         })
-    --         vim.api.nvim_set_keymap('n', '<C-t>', ':NvimTreeToggle<CR>', {noremap = true})
-    --     end,
-    -- },
 
     'nvim-lua/plenary.nvim',
 
@@ -240,7 +206,7 @@ require('lazy').setup({
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup {
-                ensure_installed = { "clangd", "pyright", "texlab", "lua_ls", "rust_analyzer" },
+                ensure_installed = { "clangd", "pyright", "texlab", "lua_ls", "rust_analyzer", "matlab_ls"},
             }
         end
     },
@@ -252,30 +218,6 @@ require('lazy').setup({
 
             require("lspconfig").pyright.setup{}
 
-            -- require('lspconfig')['rust_analyzer'].setup {
-            --     on_attach = on_attach,
-            --     settings = {
-            --         ["rust-analyzer"] = {
-            --             assist = {
-            --                 importMergeBehavior = "last",
-            --                 importPrefix = "by_self",
-            --             },
-            --             diagnostics = {
-            --                 disabled = { "unresolved-import" }
-            --             },
-            --             cargo = {
-            --                 loadOutDirsFromCheck = true
-            --             },
-            --             procMacro = {
-            --                 enable = true
-            --             },
-            --             checkOnSave = {
-            --                 command = "clippy"
-            --             },
-            --         }
-            --     }
-            -- }
-
             require('lspconfig')['texlab'].setup {
                 capabilities = capabilities,
                 settings = {
@@ -286,6 +228,17 @@ require('lazy').setup({
                     }
                 }
             }
+
+            require("lspconfig").matlab_ls.setup(
+               {
+                filetypes = {"matlab"},
+                settings = {
+                    matlab = {
+                        installPath = "/home/zac/.local/MATLAB/R2024a/"
+                    },
+                },
+                single_file_support = true
+            }) 
 
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -391,25 +344,6 @@ require('lazy').setup({
 
     { 'saadparwaiz1/cmp_luasnip' },
 
-    -- {
-    --     'simrat39/rust-tools.nvim', 
-    --     config = function()
-    --         require("rust-tools").setup({
-    --             tools = {
-    --                 runnables = {
-    --                     use_telescope = true,
-    --                 },
-    --                 inlay_hints = {
-    --                     auto = true,
-    --                     show_parameter_hints = false,
-    --                     parameter_hints_prefix = "",
-    --                     other_hints_prefix = "",
-    --                 },
-    --             },
-    --         })
-    --     end,
-    -- },
-    --
     {
         'mrcjkb/rustaceanvim',
         version = '^3', -- Recommended
@@ -429,18 +363,18 @@ require('lazy').setup({
         end,
     },
 
-    {
-        'norcalli/nvim-colorizer.lua', 
-        config = function()
-            require'colorizer'.setup()
-        end
-    },
+    -- {
+    --     'norcalli/nvim-colorizer.lua', 
+    --     config = function()
+    --         require'colorizer'.setup()
+    --     end
+    -- },
 
     'ggandor/lightspeed.nvim',
     'tpope/vim-repeat',
 
-    'itchyny/vim-cursorword',
-    'anufrievroman/vim-angry-reviewer',
+    -- 'itchyny/vim-cursorword',
+    -- 'anufrievroman/vim-angry-reviewer',
     'junegunn/vim-after-object',
 
     {
@@ -471,27 +405,16 @@ require('lazy').setup({
         end
     },
 
-    { 'toppair/peek.nvim', 
-        build = 'deno task --quiet build:fast' ,
-        config = function()
-            vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
-            vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
-        end
-    },
+    -- { 
+    --     'toppair/peek.nvim', 
+    --     build = 'deno task --quiet build:fast' ,
+    --     config = function()
+    --         vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
+    --         vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
+    --     end
+    -- },
 
     'famiu/bufdelete.nvim',
-
-    { "kelly-lin/ranger.nvim",
-        config = function()
-            require("ranger-nvim").setup({ replace_netrw = true })
-            vim.api.nvim_set_keymap("n", "<leader>ef", "", {
-                noremap = true,
-                callback = function()
-                    require("ranger-nvim").open(true)
-                end,
-            })
-        end,
-    },
 
     { 'Wansmer/treesj',
         keys = { '<space>m', '<space>j', '<space>s' },
@@ -503,32 +426,34 @@ require('lazy').setup({
         end,
     },
 
-    {
-        "folke/trouble.nvim",
-        config = function()
-            require("trouble").setup({
-                auto_open = false,
-                auto_close = false,
-            }) 
-            vim.api.nvim_set_keymap('n', '<leader>dd', ':TroubleToggle<CR>', {noremap = true})
-        end
-    },
+    -- {
+    --     "folke/trouble.nvim",
+    --     config = function()
+    --         require("trouble").setup({
+    --             auto_open = false,
+    --             auto_close = false,
+    --         }) 
+    --         vim.api.nvim_set_keymap('n', '<leader>dd', ':TroubleToggle<CR>', {noremap = true})
+    --     end
+    -- },
 
-    {'f-person/git-blame.nvim',
+    {
+        'f-person/git-blame.nvim',
         config = function()
             vim.cmd[[let g:gitblame_enabled = 0]]
         end
     },
 
-    {"AckslD/nvim-neoclip.lua",
-        requires = {
-            {'nvim-telescope/telescope.nvim'},
-            {'kkharji/sqlite.lua', module = 'sqlite'},
-        },
-        config = function()
-            require('neoclip').setup()
-        end,
-    },
+    -- {
+    --     "AckslD/nvim-neoclip.lua",
+    --     requires = {
+    --         {'nvim-telescope/telescope.nvim'},
+    --         {'kkharji/sqlite.lua', module = 'sqlite'},
+    --     },
+    --     config = function()
+    --         require('neoclip').setup()
+    --     end,
+    -- },
 
     {
         "iamcco/markdown-preview.nvim",
@@ -536,20 +461,6 @@ require('lazy').setup({
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
-
-    -- {
-    --     'simonmclean/triptych.nvim',
-    --     event = 'VeryLazy',
-    --     dependencies = {
-    --         'nvim-lua/plenary.nvim', -- required
-    --         'nvim-tree/nvim-web-devicons', -- optional
-    --     },
-    --     config = function() 
-    --         require 'triptych'.setup() 
-    --         vim.keymap.set('n', '<leader>r', ':Triptych<CR>', { silent = true })
-    --     end,
-    --
-    -- },
 
     {
         'stevearc/oil.nvim',
@@ -598,20 +509,6 @@ require('lazy').setup({
         'levouh/tint.nvim',
         config = function()
             require("tint").setup() --{
-            -- tint = -45,  -- Darken colors, use a positive value to brighten
-            -- saturation = 0.6,  -- Saturation to preserve
-            -- transforms = require("tint").transforms.SATURATE_TINT,  -- Showing default behavior, but value here can be predefined set of transforms
-            -- tint_background_colors = true,  -- Tint background portions of highlight groups
-            -- highlight_ignore_patterns = { "WinSeparator", "Status.*" },  -- Highlight group patterns to ignore, see `string.find`
-            -- window_ignore_function = function(winid)
-            --     local bufid = vim.api.nvim_win_get_buf(winid)
-            --     local buftype = vim.api.nvim_buf_get_option(bufid, "buftype")
-            --     local floating = vim.api.nvim_win_get_config(winid).relative ~= ""
-            --
-            --     -- Do not tint `terminal` or floating windows, tint everything else
-            --     return buftype == "terminal" or floating
-            -- end
-            -- })
         end
     },
 
@@ -627,38 +524,50 @@ require('lazy').setup({
             vim.keymap.set('n', '<Leader>pre', function() vim.cmd('NeoRootChange') end, NOREF_NOERR_TRUNC)
         end
     },
-    {
-        "HakonHarnes/img-clip.nvim",
-        event = "BufEnter",
-        -- opts = {
-        -- add options here
-        -- or leave it empty to use the default settings
-        -- },
-        -- keys = {
-        -- suggested keymap
-        -- { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
-        -- },
-    },
+
     -- {
-    --   "https://git.sr.ht/~swaits/zellij-nav.nvim",
-    --   lazy = true,
-    --   event = "VeryLazy",
-    --   keys = {
-    --     { "<c-h>", "<cmd>ZellijNavigateLeft<cr>",  { silent = true, desc = "navigate left"  } },
-    --     { "<c-j>", "<cmd>ZellijNavigateDown<cr>",  { silent = true, desc = "navigate down"  } },
-    --     { "<c-k>", "<cmd>ZellijNavigateUp<cr>",    { silent = true, desc = "navigate up"    } },
-    --     { "<c-l>", "<cmd>ZellijNavigateRight<cr>", { silent = true, desc = "navigate right" } },
-    --   },
-    --   opts = {},
+    --     "HakonHarnes/img-clip.nvim",
+    --     event = "BufEnter",
     -- },
+
+    -- {
+    --     'Lilja/zellij.nvim',
+    --     -- If you want to configure the plugin
+    --     config = function()
+    --         require('zellij').setup({
+    --             path = "zellij", -- Zellij binary path
+    --             vimTmuxNavigatorKeybinds = true, -- Will set keybinds like <C-h> to left
+    --         })
+    --     end
+    -- }, 
+
     {
-        'Lilja/zellij.nvim',
-        -- If you want to configure the plugin
+        "smoka7/multicursors.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            'nvimtools/hydra.nvim',
+        },
+        opts = {},
+        cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+        keys = {
+            {
+                mode = { 'v', 'n' },
+                '<Leader>m',
+                '<cmd>MCstart<cr>',
+                desc = 'Create a selection for selected text or word under the cursor',
+            },
+        },
+    }, 
+
+    {
+        'ThePrimeagen/harpoon',
         config = function()
-            require('zellij').setup({
-                path = "zellij", -- Zellij binary path
-                vimTmuxNavigatorKeybinds = true, -- Will set keybinds like <C-h> to left
-            })
-        end
+            require("harpoon").setup({})
+            vim.api.nvim_set_keymap('n', '<leader>hl', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', {noremap = true})
+            vim.api.nvim_set_keymap('n', '<leader>hj', ':lua require("harpoon.ui").nav_next()<CR>', {noremap = true})
+            vim.api.nvim_set_keymap('n', '<leader>hk', ':lua require("harpoon.ui").nav_prev()<CR>', {noremap = true})
+            vim.api.nvim_set_keymap('n', '<leader>hm', ':lua require("harpoon.mark").add_file()<CR>', {noremap = true})
+            -- vim.api.nvim_set_keymap('n', '<leader>hm', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', {noremap = true})
+        end,
     }
 })
