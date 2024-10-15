@@ -54,10 +54,10 @@ return {
     cursor_blink_rate = 500,
     enable_wayland = true,
     -- colors = require('wezterm/lua/rose-pine-moon').colors(),
-    font = wezterm.font("Shure Tech Mono Nerd Font", {weight=Retina}),
+    font = wezterm.font("JetBrains Mono Nerd Font", {weight=Retina}),
     -- font = wezterm.font("EasyReadingPRO"),
     harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
-    font_size=23,
+    font_size=21,
     leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 },
 
     disable_default_key_bindings = true,
@@ -111,7 +111,8 @@ return {
     --     -- segment_size = 11,
     --     -- segment_smoothness = 0.0,
     -- },
-    window_background_opacity = 0.9,
+    window_background_opacity = 1.0,
+    color_scheme = 'Gnometerm (terminal.sexy)',
 
     keys = {
         {

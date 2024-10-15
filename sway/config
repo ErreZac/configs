@@ -47,7 +47,8 @@ output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
   output eDP-1 resolution 2560x1440 position 0,0 scale 1
-  # output HDMI-A-1 resolution 1920x1080 position 0,0 scale 1
+  output HDMI-A-1 resolution 1920x1200 position 2560,0 scale 1
+  workspace 9 output HDMI-A-1
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -106,7 +107,8 @@ input type:keyboard {
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    # bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+q exec 'swaymsg exit'
     bindsym $mod+Shift+Ctrl+q exec poweroff
 #
 # Moving around:
@@ -235,6 +237,10 @@ bindsym XF86KbdBrightnessDown  exec "brightnessctl -d asus::kbd_backlight set 1-
 bindsym XF86Launch1  exec "/home/zac/.config/sway/cycle_profiles.sh"
 # bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
+bindsym $mod+Ctrl+w exec wl-present mirror eDP-1
+bindsym $mod+Ctrl+h exec wl-present mirror HDMI-A-1
+bindsym $mod+Ctrl+f exec wl-present freeze
+bindsym $mod+Ctrl+u exec wl-present unfreeze
 
 
 
@@ -266,11 +272,11 @@ exec wl-paste -t text --watch clipman store --no-persist
 default_border pixel 2
 default_floating_border pixel 2
 font JetBrains Mono Nerd Font 20
-gaps inner 20
+gaps inner 15
 # class             border  bground text    indicator child_border
-client.focused		#ffffff #5E5C64 #ffffff #241F31 #ffffff
-client.unfocused	#5E5C64 #241F31 #C0BFBC #5E5C64 #5E5C64
-client.focused_inactive	#5E5C64 #241F31 #C0BFBC #241F31 #5E5C64
+client.focused		#C0BFBC #1E1E1E #ffffff #241F31 #5E5C64
+client.unfocused	#5E5C64 #241F31 #5E5C64 #5E5C64 #241F31
+client.focused_inactive	#5E5C64 #241F31 #5E5C64 #241F31 #5E5C64
 
 # class                 border  bground text    indicator child_border
 # client.focused          $yellow $yellow $fg     $yellow   $yellow
@@ -305,5 +311,5 @@ client.focused_inactive	#5E5C64 #241F31 #C0BFBC #241F31 #5E5C64
 
 # Launch stuff
 
-bindsym $mod+Ctrl+f exec $file_manager
-bindsym $mod+Ctrl+t exec $teams
+# bindsym $mod+Ctrl+f exec $file_manager
+# bindsym $mod+Ctrl+t exec $teams
