@@ -49,6 +49,8 @@ ranger/plugins
 !starship.toml
 
 # waybar
+!waybar
+
 !wezterm
 
 !zathura
