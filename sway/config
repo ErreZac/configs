@@ -39,7 +39,8 @@ set $menu "fuzzel"
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
 # output * bg /usr/share/backgrounds/default-dark.png fill
-output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
+# output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
+output * bg /usr/share/backgrounds/default-dark.png fill
 # output * bg /home/zac/.backgrounds/wallpapers/download.jpeg fill
 # output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #
