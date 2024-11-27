@@ -7,6 +7,7 @@
 !alacritty/
 alacritty/*
 !alacritty/alacritty.yml
+!alacritty/alacritty.toml
 
 
 !bspwm
@@ -42,6 +43,8 @@ qtile/__pycache__
 !ranger/
 ranger/colorschemes
 ranger/plugins
+
+!rmview.json
 
 !sway
 

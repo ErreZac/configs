@@ -32,6 +32,7 @@ set $teams flatpak run com.github.IsmaelMartinez.teams_for_linux
 # set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
 # set $menu "wofi --show run --gtk-dark"
+# set $menu "rofi -show drun --gtk-dark"
 set $menu "fuzzel"
 
 ### Output configuration
@@ -40,14 +41,15 @@ set $menu "fuzzel"
 # Requires: desktop-backgrounds-compat, swaybg
 # output * bg /usr/share/backgrounds/default-dark.png fill
 # output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
-output * bg /usr/share/backgrounds/default-dark.png fill
-# output * bg /home/zac/.backgrounds/wallpapers/download.jpeg fill
+# output * bg /usr/share/backgrounds/default-dark.png fill
+output * bg /home/zac/.backgrounds/wallpapers/0074.jpg fill
+# output * bg /home/zac/.backgrounds/wallpapers/0087.jpg fill
 # output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-  output eDP-1 resolution 2560x1440 position 0,0 scale 1
+  output eDP-1 resolution 1920x1200 position 0,0 scale 1
   output HDMI-A-1 resolution 1920x1200 position 2560,0 scale 1
   workspace 9 output HDMI-A-1
 #
@@ -177,7 +179,7 @@ input type:keyboard {
     bindsym $mod+d layout splith
     bindsym $mod+e layout toggle split
 
-    workspace_layout tabbed
+    # workspace_layout tabbed
 
     # Make the current focus fullscreen
     bindsym $mod+m fullscreen
@@ -233,9 +235,10 @@ bindsym $mod+r mode "resize"
 # bindsym XF86AudioMute exec "amixer sset Master toggle"
 # bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"
 # bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-"
-bindsym XF86KbdBrightnessUp exec "brightnessctl -d asus::kbd_backlight set +1"
-bindsym XF86KbdBrightnessDown  exec "brightnessctl -d asus::kbd_backlight set 1-"
-bindsym XF86Launch1  exec "/home/zac/.config/sway/cycle_profiles.sh"
+# bindsym XF86KbdBrightnessUp exec "brightnessctl -d asus::kbd_backlight set +1"
+# bindsym XF86KbdBrightnessDown  exec "brightnessctl -d asus::kbd_backlight set 1-"
+# bindsym XF86Launch1  exec "/home/zac/.config/sway/cycle_profiles.sh"
+bindsym $mod+Shift+p  exec "/home/zac/.config/sway/cycle_profiles.sh"
 # bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
 bindsym $mod+Ctrl+w exec wl-present mirror eDP-1
@@ -270,14 +273,14 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 
 exec wl-paste -t text --watch clipman store --no-persist
 
-default_border pixel 2
+default_border pixel 1
 default_floating_border pixel 2
-font JetBrains Mono Nerd Font 20
-gaps inner 15
+font JetBrains Mono Nerd Font 12
+gaps inner 20
 # class             border  bground text    indicator child_border
-client.focused		#C0BFBC #1E1E1E #ffffff #241F31 #5E5C64
-client.unfocused	#5E5C64 #241F31 #5E5C64 #5E5C64 #241F31
-client.focused_inactive	#5E5C64 #241F31 #5E5C64 #241F31 #5E5C64
+client.focused		#5E5C64 #1E1E1E #C0BFBC #241F31 #5E5C64
+client.unfocused	#241F31 #1E1E1E #5E5C64 #5E5C64 #241F31
+client.focused_inactive	#5E5C64 #1E1E1E #5E5C64 #241F31 #5E5C64
 
 # class                 border  bground text    indicator child_border
 # client.focused          $yellow $yellow $fg     $yellow   $yellow

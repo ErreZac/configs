@@ -3,7 +3,7 @@
 * {
     /* font-family: 'Shure Tech Mono Nerd Font', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace; */
     font-family: 'JetBrains Mono Nerd Font', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
-    font-size: 22px;
+    font-size: 14px;
 }
 
 window#waybar {
@@ -42,8 +42,8 @@ button {
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 12;
-    margin: 0 4;
+    border-radius: 6;
+    margin: 0 1;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -94,10 +94,10 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #mpd {
-    padding: 0 20px;
+    padding: 0 10px;
     color: @base;
-    border-radius: 12;
-    margin: 0 10
+    border-radius: 6;
+    margin: 0 1
 }
 
 #workspaces {
@@ -107,9 +107,9 @@ button:hover {
 #window {
     background-color: @blue;
     color: @base;
-    padding: 0 20px;
-    margin: 0 10px;
-    border-radius: 12;
+    padding: 0 10px;
+    margin: 0 1px;
+    border-radius: 6;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

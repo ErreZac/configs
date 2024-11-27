@@ -1,11 +1,11 @@
 #!/bin/sh
 
-PROFILE="$(powerprofilesctl | grep "*" | awk '{print $2}' | sed s/://)"
+PROFILE="$(tuned-adm active | awk '{print $4}' | sed s/://)"
 
-if [ "$PROFILE" == "power-saver" ]; then
+if [ "$PROFILE" == "powersave" ]; then
     echo " "
 elif [ "$PROFILE" == "balanced" ]; then
     echo "  "
-elif [ "$PROFILE" == "performance" ]; then
+elif [ "$PROFILE" == "throughput-performance" ]; then
     echo "   "
 fi
