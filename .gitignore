@@ -46,7 +46,9 @@ ranger/plugins
 
 !rmview.json
 
-!sway
+!sway/
+
+!swaylock/
 
 !sxhkd
 !starship.toml
