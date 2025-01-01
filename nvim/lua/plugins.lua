@@ -240,6 +240,14 @@ require('lazy').setup({ {
                 single_file_support = true
             }) 
 
+            require("lspconfig").rust_analyzer.setup({
+                diagnostic = {
+
+                    refreshSupport = false,
+
+                }
+            })
+
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -344,11 +352,11 @@ require('lazy').setup({ {
 
     { 'saadparwaiz1/cmp_luasnip' },
 
-    {
-        'mrcjkb/rustaceanvim',
-        version = '^3', -- Recommended
-        ft = { 'rust' },
-    },
+    -- {
+    --     'mrcjkb/rustaceanvim',
+    --     version = '^3', -- Recommended
+    --     ft = { 'rust' },
+    -- },
 
     {
         'L3MON4D3/LuaSnip',
@@ -461,6 +469,7 @@ require('lazy').setup({ {
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
+{"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
 
     {
         'stevearc/oil.nvim',
