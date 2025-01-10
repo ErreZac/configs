@@ -26,7 +26,7 @@ bold_italic_font auto
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 21
+font_size 14
 
 #: Font size (in pts)
 
@@ -2322,6 +2322,6 @@ include ./theme.conf
 
 
 # BEGIN_KITTY_THEME
-# GitHub Dark
-include current-theme.conf
+# Rosé Pine
+# include current-theme.conf
 # END_KITTY_THEME

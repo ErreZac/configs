@@ -46,38 +46,38 @@ require('lazy').setup({ {
         end,
     },
 
-    -- { 
-    --     'rose-pine/neovim', 
-    --     as = 'rose-pine',
-    --     config = function()
-    --         require('rose-pine').setup({
-    --             --- @usage 'auto'|'main'|'moon'|'dawn'
-    --             -- variant = 'dawn',
-    --             variant = 'moon',
-    --             bold_vert_split = false,
-    --         styles = {
-    --             bold = true,
-    --             italic = true,
-    --             transparency = true,
-    --         },
-    --         })
-    --         -- vim.cmd('colorscheme rose-pine')
-    --     end, 
-    -- },
-
-    {
-        "Mofiqul/adwaita.nvim",
-        lazy = false,
-        priority = 1000,
-
-        -- configure and set on startup
+    { 
+        'rose-pine/neovim', 
+        as = 'rose-pine',
         config = function()
-            vim.g.adwaita_darker = false             -- for darker version
-            -- vim.g.adwaita_disable_cursorline = true -- to disable cursorline
-            vim.g.adwaita_transparent = true        -- makes the background transparent
-            vim.cmd('colorscheme adwaita')
-        end
+            require('rose-pine').setup({
+                --- @usage 'auto'|'main'|'moon'|'dawn'
+                -- variant = 'dawn',
+                variant = 'moon',
+                bold_vert_split = false,
+            styles = {
+                bold = true,
+                italic = true,
+                transparency = true,
+            },
+            })
+            vim.cmd('colorscheme rose-pine')
+        end, 
     },
+
+    -- {
+    --     "Mofiqul/adwaita.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --
+    --     -- configure and set on startup
+    --     config = function()
+    --         vim.g.adwaita_darker = false             -- for darker version
+    --         -- vim.g.adwaita_disable_cursorline = true -- to disable cursorline
+    --         vim.g.adwaita_transparent = true        -- makes the background transparent
+    --         vim.cmd('colorscheme adwaita')
+    --     end
+    -- },
 
     'nvim-treesitter/nvim-treesitter-textobjects'     ,
 
