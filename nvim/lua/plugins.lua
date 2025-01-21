@@ -53,12 +53,12 @@ require('lazy').setup({ {
             require('rose-pine').setup({
                 --- @usage 'auto'|'main'|'moon'|'dawn'
                 -- variant = 'dawn',
-                variant = 'moon',
+                variant = 'main',
                 bold_vert_split = false,
             styles = {
                 bold = true,
                 italic = true,
-                transparency = true,
+                transparency = false,
             },
             })
             vim.cmd('colorscheme rose-pine')
@@ -529,8 +529,8 @@ require('lazy').setup({ {
             }
             local NOREF_NOERR_TRUNC = { noremap = true, silent = true, nowait = true }
             vim.cmd'au BufEnter * NeoRoot'
-            vim.keymap.set('n', '<Leader>p', function() vim.cmd('NeoRootSwitchMode') end, NOREF_NOERR_TRUNC)
-            vim.keymap.set('n', '<Leader>pre', function() vim.cmd('NeoRootChange') end, NOREF_NOERR_TRUNC)
+            vim.keymap.set('n', '<Leader>pt', function() vim.cmd('NeoRootSwitchMode') end, NOREF_NOERR_TRUNC)
+            vim.keymap.set('n', '<Leader>ps', function() vim.cmd('NeoRootChange') end, NOREF_NOERR_TRUNC)
         end
     },
 
