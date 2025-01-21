@@ -5,6 +5,7 @@ if status is-interactive
     # source /home/zac/Scripts/aliases.sh
     # source /home/zac/Scripts/bashedits.sh
     alias vim=nvim
+    alias nv=neovide
     # alias r=ranger
     alias lg=lazygit
     alias r='ranger --choosedir=$HOME/.rangerdir; set LASTDIR $(cat $HOME/.rangerdir); cd "$LASTDIR"'
