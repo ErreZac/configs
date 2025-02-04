@@ -42,7 +42,7 @@ local function split_nav(resize_or_move, key)
 end
 
 return {
-    color_scheme = "gruvbox-dark",
+    -- color_scheme = "gruvbox-dark",
     use_fancy_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
     window_decorations = "NONE",
@@ -57,7 +57,7 @@ return {
     font = wezterm.font("JetBrains Mono Nerd Font", {weight=Retina}),
     -- font = wezterm.font("EasyReadingPRO"),
     harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
-    font_size=21,
+    font_size=15,
     leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 },
 
     disable_default_key_bindings = true,
@@ -112,7 +112,7 @@ return {
     --     -- segment_smoothness = 0.0,
     -- },
     window_background_opacity = 1.0,
-    color_scheme = 'Gnometerm (terminal.sexy)',
+    color_scheme = 'rose-pine',
 
     keys = {
         {
