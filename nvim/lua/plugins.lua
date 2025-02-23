@@ -46,8 +46,8 @@ require('lazy').setup({ {
         end,
     },
 
-    { 
-        'rose-pine/neovim', 
+    {
+        'rose-pine/neovim',
         as = 'rose-pine',
         config = function()
             require('rose-pine').setup({
@@ -61,8 +61,15 @@ require('lazy').setup({ {
                 transparency = false,
             },
             })
-            vim.cmd('colorscheme rose-pine')
-        end, 
+            -- vim.cmd('colorscheme rose-pine')
+        end,
+    },
+
+    {
+        'Mofiqul/vscode.nvim' ,
+        config = function()
+            vim.cmd('colorscheme vscode')
+        end,
     },
 
     -- {
@@ -81,12 +88,12 @@ require('lazy').setup({ {
 
     'nvim-treesitter/nvim-treesitter-textobjects'     ,
 
-    { 
+    {
         'nvim-treesitter/nvim-treesitter',
         lazy = false,
         config = function()
             require('nvim-treesitter.configs').setup {
-                ensure_installed = {"python", "lua", "c", "bash", "latex", "cpp", "rust", "json", "toml"}, 
+                ensure_installed = {"python", "lua", "c", "bash", "latex", "cpp", "rust", "json", "toml"},
                 highlight = { enable = true },
                 indent = { enable = true },
                 incremental_selection = {
@@ -153,12 +160,12 @@ require('lazy').setup({ {
     'nvim-lua/plenary.nvim',
 
     {
-        'nvim-telescope/telescope-fzf-native.nvim', 
-        build = 'make' 
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make'
     },
 
     {
-        'nvim-telescope/telescope.nvim', 
+        'nvim-telescope/telescope.nvim',
         config = function()
             require('telescope').setup {
                 extensions = {
@@ -179,8 +186,8 @@ require('lazy').setup({ {
         end
     },
 
-    { 
-        "nvim-telescope/telescope-file-browser.nvim", 
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
         config=function()
             require("telescope").setup {
                 extensions = {
@@ -238,7 +245,7 @@ require('lazy').setup({ {
                     },
                 },
                 single_file_support = true
-            }) 
+            })
 
             require("lspconfig").rust_analyzer.setup({
                 diagnostic = {
@@ -324,7 +331,7 @@ require('lazy').setup({ {
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
                     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-                }, 
+                },
                     {
                         { name = 'buffer' },
                     })
@@ -372,7 +379,7 @@ require('lazy').setup({ {
     },
 
     {
-        'norcalli/nvim-colorizer.lua', 
+        'norcalli/nvim-colorizer.lua',
         config = function()
             require'colorizer'.setup()
         end
@@ -395,7 +402,7 @@ require('lazy').setup({ {
 --   {
 --       'lukas-reineke/indent-blankline.nvim',
 --       main = "ibl",
---       config = function() 
+--       config = function()
 --           require("ibl").setup()
 --       end
 --   },
@@ -413,8 +420,8 @@ require('lazy').setup({ {
         end
     },
 
-    -- { 
-    --     'toppair/peek.nvim', 
+    -- {
+    --     'toppair/peek.nvim',
     --     build = 'deno task --quiet build:fast' ,
     --     config = function()
     --         vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
@@ -440,7 +447,7 @@ require('lazy').setup({ {
     --         require("trouble").setup({
     --             auto_open = false,
     --             auto_close = false,
-    --         }) 
+    --         })
     --         vim.api.nvim_set_keymap('n', '<leader>dd', ':TroubleToggle<CR>', {noremap = true})
     --     end
     -- },
@@ -503,8 +510,8 @@ require('lazy').setup({ {
     },
 
     {
-        'akinsho/toggleterm.nvim', 
-        version = "*", 
+        'akinsho/toggleterm.nvim',
+        version = "*",
         config = function()
             require'toggleterm'.setup {
                 shade_terminals = false
@@ -548,7 +555,7 @@ require('lazy').setup({ {
     --             vimTmuxNavigatorKeybinds = true, -- Will set keybinds like <C-h> to left
     --         })
     --     end
-    -- }, 
+    -- },
 
     {
         "smoka7/multicursors.nvim",
@@ -566,7 +573,7 @@ require('lazy').setup({ {
                 desc = 'Create a selection for selected text or word under the cursor',
             },
         },
-    }, 
+    },
 
     {
         'ThePrimeagen/harpoon',
