@@ -2323,5 +2323,5 @@ include ./theme.conf
 
 # BEGIN_KITTY_THEME
 # Rosé Pine
-# include current-theme.conf
+include current-theme.conf
 # END_KITTY_THEME
