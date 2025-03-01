@@ -1,8 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
 
 ### Variables
 #
@@ -14,8 +9,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-# Recommends: foot
-set $term alacritty
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -25,15 +19,9 @@ set $rofi_cmd rofi \
 
 set $file_manager nautilus
 set $teams flatpak run com.github.IsmaelMartinez.teams_for_linux
-# Shows a combined list of the applications with desktop files and
-# executables from PATH.
-# TODO: add window with the next release of rofi-wayland
-#
-# set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
-# set $menu "wofi --show run --gtk-dark"
-# set $menu "rofi -show drun --gtk-dark"
-set $menu "fuzzel"
+set $menu "rofi -show drun --gtk-dark"
+# set $menu "fuzzel"
 
 ### Output configuration
 #
@@ -61,10 +49,10 @@ output * bg /home/zac/.backgrounds/wallpapers/0305.jpg fill
 #
 # Example configuration:
 #
-exec swayidle -w \
-	timeout 3600 'swaylock -f -c 000000' \
-	timeout 3800 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+# 	timeout 3600 'swaylock -f -c 000000' \
+# 	timeout 3800 'swaymsg "output * dpms off"' \
+#     resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -75,7 +63,6 @@ exec swayidle -w \
 # Example configuration:
 input type:keyboard {
     xkb_layout it
-    # xkb_options grp:rctrl_toggle
 }
 #
 #   input "2:14:SynPS/2_Synaptics_TouchPad" {
@@ -115,6 +102,7 @@ input type:keyboard {
     # bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
     bindsym $mod+Shift+q exec 'swaymsg exit'
     bindsym $mod+Shift+Ctrl+q exec poweroff
+    bindsym $mod+Shift+Ctrl+r exec reboot
 #
 # Moving around:
 #
@@ -280,42 +268,20 @@ exec wl-paste -t text --watch clipman store --no-persist
 default_border pixel 2
 default_floating_border pixel 2
 font JetBrains Mono Nerd Font 12
-gaps inner 0
+gaps inner 10
 # class             border  bground text    indicator child_border
-client.focused		#0AB9DC #1E1E1E #C0BFBC #241F31 #0AB9DC
-client.unfocused	#241F31 #1E1E1E #5E5C64 #5E5C64 #241F31
-client.focused_inactive	#5E5C64 #1E1E1E #5E5C64 #241F31 #5E5C64
+client.focused		#808080 #1E1E1E #d4d4d4 #1e1e1e #808080
+client.unfocused	#1E1E1E #1E1E1E #808080 #808080 #1e1e1e
+client.focused_inactive	#1E1E1E #1E1E1E #808080 #808080 #1e1e1e
+client.urgent           #d16969 #1E1E1E #d4d4d4 #1e1e1e #d16969
+client.placeholder      #1E1E1E #1E1E1E #808080 #808080 #1e1e1e
 
 # class                 border  bground text    indicator child_border
-# client.focused          $yellow $yellow $fg     $yellow   $yellow
-# client.focused_inactive $bg_2   #5F676A $fg     #484E50   #5F676A
-# client.unfocused        $bg_2   #241F31 #C0BFBC #241F31 #241F31
-# client.urgent           #2F343A #CC241D $fg_1   #CC241D   #CC241D
-# client.placeholder      #1D2021 #0C0C0C $fg      #000000   #0C0C0C
 
-
-        #1e1e1e
-        #ffffff
-        #241F31,
-        #C01C28,
-        #2EC27E,
-        #F5C211,
-        #1E78E4,
-        #9841BB,
-        #0AB9DC,
-        #C0BFBC,
-        #5E5C64,
-        #ED333B,
-        #57E389,
-        #F8E45C,
-        #51A1FF,
-        #C061CB,
-        #4FD2FD,
-        #F6F5F4
 
 # titlebar_padding 1
 # titlebar_border_thickness 0
-# gaps outer 10 
+# gaps outer 10
 
 # Launch stuff
 
