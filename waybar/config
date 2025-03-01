@@ -6,18 +6,18 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        //"sway/workspaces",
-        //"sway/mode",
-        //"sway/scratchpad"
-        "hyprland/workspaces"
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad"
+        //"hyprland/workspaces"
     ],
     //"modules-center": [
     //    "custom/profile",
     //],
     "modules-right": [
         //"idle_inhibitor",
-        //"sway/window",
-        "hyprland/window",
+        "sway/window",
+        //"hyprland/window",
         "custom/profile",
         "pulseaudio",
         "battery",
