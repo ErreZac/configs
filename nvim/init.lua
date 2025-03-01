@@ -157,7 +157,10 @@ require('lazy').setup({
             -- appearence
             require("mini.animate").setup()
             require("mini.cursorword").setup()
-            require("mini.hipatterns").setup()
+            require("mini.hipatterns").setup({
+                highlighters = {
+                    hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+                } })
             require("mini.icons").setup()
             require("mini.map").setup()
             require("mini.starter").setup()
