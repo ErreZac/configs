@@ -130,7 +130,19 @@ require('lazy').setup({
             -- require("mini.pairs").setup()
             require("mini.snippets").setup()
             require("mini.splitjoin").setup()
-            require("mini.surround").setup()
+            require("mini.surround").setup({
+                mappings = {
+                    add = 'sa', -- Add surrounding in Normal and Visual modes
+                    delete = 'ds', -- Delete surrounding
+                    find = 'sf', -- Find surrounding (to the right)
+                    find_left = 'sF', -- Find surrounding (to the left)
+                    highlight = 'sh', -- Highlight surrounding
+                    replace = 'cs', -- Replace surrounding
+                    update_n_lines = 'sn', -- Update `n_lines`
+                    suffix_last = 'l', -- Suffix to search with "prev" method
+                    suffix_next = 'n', -- Suffix to search with "next" method
+                },
+            })
 
             -- general workflow
             require("mini.basics").setup({
@@ -256,6 +268,37 @@ require('lazy').setup({
         end,
     },
 
+    -- oil
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("oil").setup({
+                -- use_default_keymaps = true,
+                keymaps = {
+                    ["g?"] = "actions.show_help",
+                    ["<CR>"] = "actions.select",
+                    ["<C-s>"] = "actions.select_vsplit",
+                    ["<C-h>"] = "actions.select_split",
+                    ["<C-t>"] = "actions.select_tab",
+                    ["<C-p>"] = "actions.preview",
+                    ["<C-c>"] = "actions.close",
+                    ["<C-l>"] = "actions.refresh",
+                    ["-"] = "actions.parent",
+                    ["_"] = "actions.open_cwd",
+                    ["`"] = "actions.cd",
+                    ["~"] = "actions.tcd",
+                    ["gs"] = "actions.change_sort",
+                    ["gx"] = "actions.open_external",
+                    ["g."] = "actions.toggle_hidden",
+                    ["g\\"] = "actions.toggle_trash",
+                },
+            })
+        end
+    },
+
 })
 
 -- EndPlugins
@@ -276,7 +319,8 @@ vim.keymap.set('n', '<leader>mt', function() require("mini.map").toggle_focus() 
 -- mini trailspace
 vim.keymap.set('n', '<leader>t', function() require("mini.trailspace").trim() end, {noremap = true})
 
-vim.keymap.set('n', '-', function() require("mini.files").open() end, {noremap = true})
+-- vim.keymap.set('n', '-', function() require("mini.files").open() end, {noremap = true})
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- EndPluginKeymaps
 
