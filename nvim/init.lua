@@ -167,7 +167,32 @@ require('lazy').setup({
             -- require("mini.visits").setup()
 
             -- appearence
-            require("mini.animate").setup()
+            require("mini.animate").setup({
+                    -- Cursor path
+                    cursor = {
+                        enable = true,
+                    },
+
+                    -- Vertical scroll
+                    scroll = {
+                        enable = false,
+                    },
+
+                    -- Window resize
+                    resize = {
+                        enable = true,
+                    },
+
+                    -- Window open
+                    open = {
+                        enable = true,
+                    },
+
+                    -- Window close
+                    close = {
+                        enable = true,
+                    },
+            })
             require("mini.cursorword").setup()
             require("mini.hipatterns").setup({
                 highlighters = {
