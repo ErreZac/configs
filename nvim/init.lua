@@ -146,7 +146,7 @@ require('lazy').setup({
 
             -- general workflow
             require("mini.basics").setup({
-                options = { basic = true, extra_ui = true, win_borders = 'sinle', },
+                options = { basic = true, extra_ui = true, win_borders = 'single', },
                 mappings = { basic = true, option_toggle_prefix = [[]], windows = false, move_with_alt = false, },
                 autocommands = { basic = true, relnum_in_visual_mode = true, },
                 silent = false,
@@ -157,12 +157,12 @@ require('lazy').setup({
             -- require("mini.deps").setup()
             -- require("mini.diff").setup()
             -- require("mini.extra").setup()
-            require("mini.files").setup()
+            -- require("mini.files").setup()
             -- require("mini.git").setup()
             require("mini.jump").setup()
             -- require("mini.jump2d").setup()
             -- require("mini.misc").setup() -- something mitght be useful
-            require("mini.pick").setup()
+            -- require("mini.pick").setup()
             -- require("mini.sessions").setup()
             -- require("mini.visits").setup()
 
@@ -200,7 +200,7 @@ require('lazy').setup({
                 } })
             require("mini.icons").setup()
             require("mini.map").setup()
-            require("mini.starter").setup()
+            -- require("mini.starter").setup()
             require("mini.statusline").setup()
             require("mini.tabline").setup()
             require("mini.trailspace").setup()
@@ -293,6 +293,38 @@ require('lazy').setup({
         end,
     },
 
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000 ,
+        config = function()
+            require("gruvbox").setup({
+                terminal_colors = true, -- add neovim terminal colors
+                undercurl = true,
+                underline = true,
+                bold = true,
+                italic = {
+                    strings = true,
+                    emphasis = true,
+                    comments = true,
+                    operators = false,
+                    folds = true,
+                },
+                strikethrough = true,
+                invert_selection = false,
+                invert_signs = false,
+                invert_tabline = false,
+                invert_intend_guides = false,
+                inverse = true, -- invert background for search, diffs, statuslines and errors
+                contrast = "", -- can be "hard", "soft" or empty string
+                palette_overrides = {},
+                overrides = {},
+                dim_inactive = false,
+                transparent_mode = false,
+            })
+            -- vim.cmd("colorscheme gruvbox")
+        end
+    },
+
     -- oil
     {
         'stevearc/oil.nvim',
@@ -324,7 +356,61 @@ require('lazy').setup({
         end
     },
 
+-- Plenary and harpoon
+
+    'nvim-lua/plenary.nvim',
+    {
+        'ThePrimeagen/harpoon',
+        config = function()
+            require("harpoon").setup({})
+            vim.api.nvim_set_keymap('n', '<leader>hl', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', {noremap = true})
+            vim.api.nvim_set_keymap('n', '<leader>hj', ':lua require("harpoon.ui").nav_next()<CR>', {noremap = true})
+            vim.api.nvim_set_keymap('n', '<leader>hk', ':lua require("harpoon.ui").nav_prev()<CR>', {noremap = true})
+            vim.api.nvim_set_keymap('n', '<leader>hm', ':lua require("harpoon.mark").add_file()<CR>', {noremap = true})
+        end,
+    },
+
+    -- Telescope
+
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make'
+    },
+
+    {
+        'nvim-telescope/telescope.nvim',
+        config = function()
+            require('telescope').setup {
+                extensions = {
+                    fzf = {
+                        fuzzy = true,                    -- false will only do exact matching
+                        override_generic_sorter = true,  -- override the generic sorter
+                        override_file_sorter = true,     -- override the file sorter
+                        case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                    }
+                }
+            }
+            require('telescope').load_extension('fzf')
+        end
+    },
+
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        config=function()
+            require("telescope").setup {
+                extensions = {
+                    file_browser = {
+                        theme = "ivy",
+                        hijack_netrw = true,
+                    },
+                },
+            }
+            require("telescope").load_extension "file_browser"
+        end
+    },
+
 })
+
 
 -- EndPlugins
 
@@ -334,8 +420,9 @@ require('lazy').setup({
 vim.keymap.set('n', '<leader>bd', function() require("mini.bufremove").delete() end, {noremap = true})
 
 -- mini pick
-vim.keymap.set('n', '<leader>ff', ':Pick files<CR>', {noremap = true})
-vim.keymap.set('n', '<leader>fg', ':Pick grep_live<CR>', {noremap = true})
+-- vim.keymap.set('n', '<leader>ff', ':Pick files<CR>', {noremap = true})
+-- vim.keymap.set('n', '<leader>fg', ':Pick grep_live<CR>', {noremap = true})
+-- vim.keymap.set('n', '<leader>fb', ':Pick buffers<CR>', {noremap = true})
 
 -- mini map
 vim.keymap.set('n', '<leader>ms', function() require("mini.map").toggle() end, {noremap = true})
@@ -346,6 +433,14 @@ vim.keymap.set('n', '<leader>t', function() require("mini.trailspace").trim() en
 
 -- vim.keymap.set('n', '-', function() require("mini.files").open() end, {noremap = true})
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Telescope
+
+vim.api.nvim_set_keymap('n', '<leader>fF', '<cmd>Telescope find_files<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>ff", ":Telescope file_browser<cr>", { noremap = true })
 
 -- EndPluginKeymaps
 

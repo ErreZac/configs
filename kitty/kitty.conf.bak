@@ -2318,10 +2318,10 @@ map ctrl+space>equal change_font_size all 0
 
 #: }}}
 #
-include ./theme.conf
+# include ./theme.conf
 
 
 # BEGIN_KITTY_THEME
-# Rosé Pine
+# Gruvbox Dark
 include current-theme.conf
 # END_KITTY_THEME
