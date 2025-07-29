@@ -2322,6 +2322,6 @@ map ctrl+space>equal change_font_size all 0
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Dark
+# GitHub Light High Contrast
 include current-theme.conf
 # END_KITTY_THEME

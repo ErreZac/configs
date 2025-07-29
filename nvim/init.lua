@@ -280,9 +280,15 @@ require('lazy').setup({
             require("lspconfig").pyright.setup{}
             require("lspconfig").clangd.setup{}
             -- require("lspconfig").lua_ls.setup{}
-            require("lspconfig").rust_analyzer.setup{}
+            -- require("lspconfig").rust_analyzer.setup{}
             require("lspconfig").texlab.setup{}
         end
+    },
+
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^6', -- Recommended
+        lazy = false, -- This plugin is already lazy
     },
 
     -- colorscheme

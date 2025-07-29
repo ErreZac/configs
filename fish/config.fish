@@ -18,9 +18,9 @@ if status is-interactive
     # set -g theme_color_scheme terminal2-dark-black
     starship init fish | source
     # export CYCLONEDDS_HOME="/home/zac/Software/cyclonedds/install"
-    if not set -q $WEZTERM_PANE
-        set -x NVIM_LISTEN_ADDRESS "/tmp/nvim$WEZTERM_PANE"
-    end
+    # if not set -q $WEZTERM_PANE
+    #     set -x NVIM_LISTEN_ADDRESS "/tmp/nvim$WEZTERM_PANE"
+    # end
     # fzf_configure_bindings --variables=\ev
     # if not set -q TMUX
     #     set -g TMUX tmux new-session -d -s base
