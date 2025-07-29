@@ -1,6 +1,0 @@
-{
-    "suggest.noselect": true,
-    "colors.enable": true,
-    "rust-analyzer.enable": true,
-    "rust-analyzer.server.path": "/usr/lib/rustup/bin/rust-analyzer"
-}
