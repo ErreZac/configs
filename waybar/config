@@ -27,7 +27,10 @@
         "backlight",
         "network",
         "clock",
-        "tray"
+        "custom/logout",
+        "custom/reboot",
+        "custom/poweroff",
+        "tray",
     ],
     // Modules configuration
     "sway/workspaces": {
@@ -190,6 +193,27 @@
         //"escape": true,
         "exec": "/home/zac/.config/sway/get_profile.sh",
         "interval": 5
+    },
+    "custom/logout": {
+        "format": "󰍃 ",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit",
+        "on-click-right": "hyprctl dispatch exit",
+        "on-click-middle": "hyprctl dispatch exit",
+    },
+    "custom/reboot": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "reboot",
+        "on-click-right": "reboot",
+        "on-click-middle": "reboot",
+    },
+    "custom/poweroff": {
+        "format": "󰐥 ",
+        "tooltip": false,
+        "on-click": "poweroff",
+        "on-click-right": "poweroff",
+        "on-click-middle": "poweroff",
     },
     "custom/media": {
         "format": "{icon} {}",

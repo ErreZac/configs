@@ -98,6 +98,9 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#custom-reboot,
+#custom-logout,
+#custom-poweroff,
 #mpd {
     padding: 0 10px;
     color: @base;
@@ -129,6 +132,19 @@ button:hover {
 
 #custom-profile {
     background-color: @cyan;
+    color: @base;
+}
+
+#custom-logout {
+    background-color: @green;
+    color: @base;
+}
+#custom-reboot {
+    background-color: @yellow;
+    color: @base;
+}
+#custom-poweroff {
+    background-color: @red;
     color: @base;
 }
 
