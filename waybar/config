@@ -197,9 +197,9 @@
     "custom/logout": {
         "format": "󰍃 ",
         "tooltip": false,
-        "on-click": "hyprctl dispatch exit",
-        "on-click-right": "hyprctl dispatch exit",
-        "on-click-middle": "hyprctl dispatch exit",
+        "on-click": "swaymsg exit", //"hyprctl dispatch exit",
+        "on-click-right": "swaymsg exit", //"hyprctl dispatch exit",
+        "on-click-middle": "swaymsg exit", //"hyprctl dispatch exit",
     },
     "custom/reboot": {
         "format": " ",

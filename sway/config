@@ -31,8 +31,8 @@ set $menu "rofi -show drun --gtk-dark"
 # output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
 # output * bg /usr/share/backgrounds/default-dark.png fill
 # output * bg /home/zac/.backgrounds/wallpapers/0074.jpg fill
-output * bg /home/zac/.backgrounds/wallpapers/0305.jpg fill
-# output * bg /home/zac/.backgrounds/wallpapers/0239.jpg fill
+# output * bg /home/zac/.backgrounds/wallpapers/0305.jpg fill
+output * bg /home/zac/.backgrounds/wallpapers/0239.jpg fill
 # output * bg /home/zac/.backgrounds/wallpapers/0087.jpg fill
 # output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #

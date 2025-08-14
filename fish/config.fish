@@ -27,5 +27,7 @@ if status is-interactive
     #     eval $TMUX
     #     tmux attach-session -d -t base
     # end
+
+    source /home/zac/.config/fish/github_dark_high_contrast.fish
 end
 
