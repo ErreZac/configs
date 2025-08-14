@@ -265,16 +265,16 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 
 exec wl-paste -t text --watch clipman store --no-persist
 
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 font JetBrains Mono Nerd Font 12
 gaps inner 10
 # class             border  bground text    indicator child_border
-client.focused		#808080 #1E1E1E #d4d4d4 #1e1e1e #808080
-client.unfocused	#1E1E1E #1E1E1E #808080 #808080 #1e1e1e
-client.focused_inactive	#1E1E1E #1E1E1E #808080 #808080 #1e1e1e
-client.urgent           #d16969 #1E1E1E #d4d4d4 #1e1e1e #d16969
-client.placeholder      #1E1E1E #1E1E1E #808080 #808080 #1e1e1e
+client.focused		#f0f3f6 #0a0c10 #f0f3f6 #0a0c10 #f0f3f6
+client.unfocused	#7a828e #010409 #d9dee3 #7a828e #010409
+client.focused_inactive	#0a0c10 #0a0c10 #7a828e #7a828e #0a0c10
+client.urgent           #ff9492 #0a0c10 #f0f3f6 #0a0c10 #ff9492
+client.placeholder      #0a0c10 #0a0c10 #7a828e #7a828e #0a0c10
 
 # class                 border  bground text    indicator child_border
 
