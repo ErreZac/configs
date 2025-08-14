@@ -1,9 +1,9 @@
 # 
 
 format = """
-[ ](fg:bright-black)\ 
-[  ](bg:bright-black fg:bright-white)\
-[](fg:bright-black)\
+[ ](fg:bright-white)\ 
+[  ](bg:bright-white fg:#0a0c10)\
+[](fg:bright-white)\
 $directory\
 [](fg:yellow)\
 $git_branch\
