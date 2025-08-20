@@ -13,6 +13,7 @@ window#waybar {
     color: @text;
     transition-property: background-color;
     transition-duration: .5s;
+    border: 1px solid @text;
 }
 
 window#waybar.hidden {
@@ -42,14 +43,13 @@ button {
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 6;
-    margin: 0 1;
+    border-radius: 5;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px @text;
+    box-shadow: inset 0 -2px @text;
 }
 
 #workspaces button {
@@ -59,7 +59,8 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: @bright-cyan;
+    color: @base;
 }
 
 #workspaces button.active {
@@ -78,8 +79,8 @@ button:hover {
 }
 
 #mode {
-    background-color: @bright-black;
-    border-bottom: 3px solid @text;
+    background-color: @bright-green;
+    border-bottom: 0px;
 }
 
 #custom-profile,
@@ -104,20 +105,21 @@ button:hover {
 #mpd {
     padding: 0 10px;
     color: @base;
-    border-radius: 6;
-    margin: 0 1
+    border-radius: 5;
+    margin: 5 0;
 }
 
 #workspaces {
-    margin: 0 10px;
+    margin: 5 0;
+    padding: 0 5;
 }
 
 #window {
     background-color: @blue;
     color: @base;
-    padding: 0 10px;
-    margin: 0 1px;
-    border-radius: 6;
+    padding: 0 5px;
+    margin: 5 0;
+    border-radius: 5;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -294,7 +296,7 @@ label:focus {
     background: #00b093;
     color: #740864;
     padding: 0 5px;
-    margin: 0 5px;
+    margin: 5 0;
     min-width: 16px;
 }
 
@@ -302,7 +304,7 @@ label:focus {
     background: #97e1ad;
     color: #000000;
     padding: 0 0px;
-    margin: 0 5px;
+    margin: 5 0;
     min-width: 16px;
 }
 
