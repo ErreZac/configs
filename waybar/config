@@ -183,15 +183,9 @@
         "on-click": "pavucontrol"
     },
     "custom/profile": {
-        //"format": "{icon} {}",
-        "format": "{0}{1}",
-        //"return-type": "json",
-        "max-length": 10,
-        //"format-icons": {
-        //    "spotify": "",
-        //    "default": "🎜"
-        //},
-        //"escape": true,
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "format-icons": ["󰌪", "󰗑", ""],
         "exec": "/home/zac/.config/sway/get_profile.sh",
         "interval": 5
     },

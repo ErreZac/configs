@@ -132,8 +132,18 @@ button:hover {
     margin-right: 0;
 }
 
-#custom-profile {
-    background-color: @cyan;
+#custom-profile.powersave {
+    background-color: @bright-green;
+    color: @base;
+}
+
+#custom-profile.balanced {
+    background-color: @blue;
+    color: @base;
+}
+
+#custom-profile.performance {
+    background-color: @magenta;
     color: @base;
 }
 
@@ -151,7 +161,7 @@ button:hover {
 }
 
 #clock {
-    background-color: @bright-cyan;
+    background-color: @bright-blue;
     color: @base;
 }
 
@@ -204,7 +214,7 @@ label:focus {
 }
 
 #network {
-    background-color: @blue;
+    background-color: @cyan;
     color: @base;
 }
 
@@ -218,7 +228,7 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: @black;
+    background-color: @bright-black;
     color: @base;
 }
 
