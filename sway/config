@@ -27,12 +27,12 @@ set $menu "rofi -show drun --gtk-dark"
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-# output * bg /usr/share/backgrounds/default-dark.png fill
+output * bg /usr/share/backgrounds/default-dark.jxl fill
 # output * bg /usr/share/backgrounds/fedora-workstation/flight_dark.webp fill
 # output * bg /usr/share/backgrounds/default-dark.png fill
 # output * bg /home/zac/.backgrounds/wallpapers/0074.jpg fill
 # output * bg /home/zac/.backgrounds/wallpapers/0305.jpg fill
-output * bg /home/zac/.backgrounds/wallpapers/0239.jpg fill
+# output * bg /home/zac/.backgrounds/wallpapers/0239.jpg fill
 # output * bg /home/zac/.backgrounds/wallpapers/0087.jpg fill
 # output * bg ~/.backgrounds/wallpapers/0119.jpg fill
 #
@@ -40,7 +40,7 @@ output * bg /home/zac/.backgrounds/wallpapers/0239.jpg fill
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
   output eDP-1 resolution 1920x1200 position 0,0 scale 1
-  output HDMI-A-1 resolution 1920x1200 position 1920,0 scale 1
+  # output HDMI-A-1 resolution 1920x1200 position 1920,0 scale 1
   workspace 9 output HDMI-A-1
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
