@@ -2,6 +2,7 @@ require("settings")
 require("keymaps")
 require("lazysettings")
 require("pluginkeymaps")
+require("lsp")
 
 
 -- Show diagnostic popup on cursor hover
