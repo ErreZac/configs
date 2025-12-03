@@ -20,8 +20,8 @@ set $rofi_cmd rofi \
 set $file_manager nautilus
 set $teams flatpak run com.github.IsmaelMartinez.teams_for_linux
 
-set $menu "rofi -show drun --gtk-dark"
-# set $menu "fuzzel"
+# set $menu "rofi -show drun --gtk-dark"
+set $menu "fuzzel"
 
 ### Output configuration
 #
