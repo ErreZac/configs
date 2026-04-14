@@ -3,7 +3,7 @@ require("keymaps")
 require("lazysettings")
 require("pluginkeymaps")
 require("lsp")
-
+require("neovide")
 
 -- Show diagnostic popup on cursor hover
 -- local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })

@@ -16,6 +16,9 @@ vim.keymap.set('n', '<leader>t', function() require("mini.trailspace").trim() en
 -- vim.keymap.set('n', '-', function() require("mini.files").open() end, {noremap = true})
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+-- mini starter
+vim.api.nvim_set_keymap('n', '<leader>mm', ':lua MiniStarter.open()<CR>', {noremap = true})
+
 -- Telescope
 
 vim.api.nvim_set_keymap('n', '<leader>fF', '<cmd>Telescope find_files<cr>', {noremap = true})

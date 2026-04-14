@@ -87,10 +87,10 @@ require('lazy').setup({
                         enable = true,
                     },
 
-                    -- Window close
-                    close = {
-                        enable = true,
-                    },
+                -- Window close
+                close = {
+                    enable = true,
+                },
             })
             require("mini.cursorword").setup()
             require("mini.hipatterns").setup({
@@ -99,7 +99,9 @@ require('lazy').setup({
                 } })
             require("mini.icons").setup()
             require("mini.map").setup()
-            -- require("mini.starter").setup()
+            require("mini.starter").setup({
+                header = " ▌ ▌   ▜▜     ▛▀▘         ▀▀▌      \n ▙▄▌▞▀▖▐▐ ▞▀▖ ▙▄ ▙▀▖▙▀▖▞▀▖ ▞ ▝▀▖▞▀▖\n ▌ ▌▛▀ ▐▐ ▌ ▌ ▌  ▌  ▌  ▛▀ ▞  ▞▀▌▌ ▖\n ▘ ▘▝▀▘ ▘▘▝▀  ▀▀▘▘  ▘  ▝▀▘▀▀▘▝▀▘▝▀ ",
+            })
             require("mini.statusline").setup()
             require("mini.tabline").setup()
             require("mini.trailspace").setup()
@@ -281,6 +283,5 @@ require('lazy').setup({
             require("telescope").load_extension "file_browser"
         end
     },
-
 })
 

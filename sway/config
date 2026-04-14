@@ -231,6 +231,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+p  exec "/home/zac/.config/sway/cycle_profiles.sh"
 # bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 bindsym $mod+p exec grim -g "$(slurp -d)" - | wl-copy
+bindsym $mod+Ctrl+p exec bash -c 'filename=$(wofi -d --allow-empty --lines 1 --prompt "Enter the screenshot name:"); slurp -d | grim -g - ~/Pictures/Screenshots/$filename.png'
 bindsym $mod+Ctrl+w exec wl-present mirror eDP-1
 bindsym $mod+Ctrl+h exec wl-present mirror HDMI-A-1
 bindsym $mod+Ctrl+f exec wl-present freeze

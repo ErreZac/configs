@@ -151,9 +151,8 @@ master {
 
 scrolling {
     fullscreen_on_one_column = true
-    column_width = 0.75
-    direction = right
-    focus_fit_method = 1
+    column_width = 0.9
+    direction = down
 }
 
 # gestures {
@@ -253,47 +252,66 @@ bind = $mainMod, Return, exec, uwsm app -- $terminal
 bind = $mainMod SHIFT, C, killactive,
 bind = $mainMod SHIFT, Q, exit,
 # bind = $mainMod SHIFT, f, exec, $fileManager
-bind = $mainMod SHIFT, f, togglefloating,
+bind = $mainMod, f, togglefloating,
 bind = $mainMod, Space, exec, uwsm app -- $menu
 
 # bind = $mainMod, P, pseudo, # dwindle
 # bind = $mainMod SHIFT, J, togglesplit, # dwindle
 
 # for hy3 layout
+bind = $mainMod, Minus, hy3:makegroup, h
+bind = $mainMod, Plus, hy3:makegroup, v
+bind = $mainMod, t, hy3:changegroup, toggletab
+bind = $mainMod SHIFT, t, hy3:makegroup, tab, ephemeral
 
-# fits
-bind = $mainMod, m, layoutmsg, fit active
-bind = $mainMod, a, layoutmsg, fit all
-bind = $mainMod, e, layoutmsg, fit toend
-bind = $mainMod, b, layoutmsg, fit tobeg
-bind = $mainMod, f, layoutmsg, fit visible
+bind = $mainMod SHIFT, a, hy3:changefocus, top
+bind = $mainMod SHIFT, p, hy3:changefocus, raise
+bind = $mainMod SHIFT, n, hy3:changefocus, lower
 
-bind = $mainMod, h, movefocus, l, nowarp
-bind = $mainMod, j, movefocus, d, nowarp
-bind = $mainMod, k, movefocus, u, nowarp
-bind = $mainMod, l, movefocus, r, nowarp
-bind = $mainMod, Left, movefocus, l, nowarp
-bind = $mainMod, Down, movefocus, d, nowarp
-bind = $mainMod, Up, movefocus, u, nowarp
-bind = $mainMod, Right, movefocus, r, nowarp
+# bind = $mainMod, e, hy3:expand, expand
+# bind = $mainMod+SHIFT, e, hy3:expand, base
+# bind = $mainMod, r, hy3:changegroup, opposite
 
-bind = $mainMod+ALT, h, movewindow, left
-bind = $mainMod+ALT, j,  swapwindow, d
-bind = $mainMod+ALT, k,  swapwindow, u
-bind = $mainMod+ALT, l,  movewindow, right
+bind = $mainMod, h, hy3:movefocus, l, nowarp
+bind = $mainMod, j, hy3:movefocus, d, nowarp
+bind = $mainMod, k, hy3:movefocus, u, nowarp
+bind = $mainMod, l, hy3:movefocus, r, nowarp
+bind = $mainMod, Left, hy3:movefocus, l, nowarp
+bind = $mainMod, Down, hy3:movefocus, d, nowarp
+bind = $mainMod, Up, hy3:movefocus, u, nowarp
+bind = $mainMod, Right, hy3:movefocus, r, nowarp
 
-bind = $mainMod+SHIFT, h, layoutmsg, swapcol l
-bind = $mainMod+SHIFT, j, layoutmsg, swapcol r
-bind = $mainMod+SHIFT, k, layoutmsg, swapcol l
-bind = $mainMod+SHIFT, l, layoutmsg, swapcol r
+bind = $mainMod+ALT, h, hy3:movefocus, l, visible, nowarp
+bind = $mainMod+ALT, j, hy3:movefocus, d, visible, nowarp
+bind = $mainMod+ALT, k, hy3:movefocus, u, visible, nowarp
+bind = $mainMod+ALT, l, hy3:movefocus, r, visible, nowarp
+bind = $mainMod+ALT, Left, hy3:movefocus, l, visible, nowarp
+bind = $mainMod+ALT, Down, hy3:movefocus, d, visible, nowarp
+bind = $mainMod+ALT, Up, hy3:movefocus, u, visible, nowarp
+bind = $mainMod+ALT, Right, hy3:movefocus, r, visible, nowarp
 
-bind = $mainMod+SHIFT, Period, layoutmsg, promote
+bind = $mainMod+SHIFT, h, hy3:movewindow, l, once
+bind = $mainMod+SHIFT, j, hy3:movewindow, d, once
+bind = $mainMod+SHIFT, k, hy3:movewindow, u, once
+bind = $mainMod+SHIFT, l, hy3:movewindow, r, once
+bind = $mainMod+SHIFT, Left, hy3:movewindow, l, once
+bind = $mainMod+SHIFT, Down, hy3:movewindow, d, once
+bind = $mainMod+SHIFT, Up, hy3:movewindow, u, once
+bind = $mainMod+SHIFT, Right, hy3:movewindow, r, once
 
+bind = $mainMod+ALT+SHIFT, h, hy3:movewindow, l, once, visible
+bind = $mainMod+ALT+SHIFT, j, hy3:movewindow, d, once, visible
+bind = $mainMod+ALT+SHIFT, k, hy3:movewindow, u, once, visible
+bind = $mainMod+ALT+SHIFT, l, hy3:movewindow, r, once, visible
+bind = $mainMod+ALT+SHIFT, Left, hy3:movewindow, l, once, visible
+bind = $mainMod+ALT+SHIFT, Down, hy3:movewindow, d, once, visible
+bind = $mainMod+ALT+SHIFT, Up, hy3:movewindow, u, once, visible
+bind = $mainMod+ALT+SHIFT, Right, hy3:movewindow, r, once, visible
 
-bind = $mainMod CONTROL, h, layoutmsg, colresize -0.1
-bind = $mainMod CONTROL, l, layoutmsg, colresize +0.1
-bind = $mainMod CONTROL, j, layoutmsg, colresize -0.1
-bind = $mainMod CONTROL, k, layoutmsg, colresize +0.1
+bind = $mainMod CONTROL, h, resizeactive, -40 0
+bind = $mainMod CONTROL, l, resizeactive, 40 0
+bind = $mainMod CONTROL, k, resizeactive, 0 -40
+bind = $mainMod CONTROL, j, resizeactive, 0 40
 
 # for master layout
 # bind = $mainMod, j, layoutmsg, cyclenext
@@ -301,7 +319,8 @@ bind = $mainMod CONTROL, k, layoutmsg, colresize +0.1
 # bind = $mainMod SHIFT, k, layoutmsg, swapprev
 # bind = $mainMod SHIFT, j, layoutmsg, swapnext
 
-bind = $mainMod SHIFT, m, fullscreen, 0
+bind = $mainMod, m, fullscreen, 0
+bind = $mainMod SHIFT, m, fullscreen, 1
 
 bind = $mainMod SHIFT, r, exec, ~/.config/waybar/launch.sh
 bind = $mainMod, p, exec, uwsm app -- grim -g "$(slurp -d)" - | wl-copy
@@ -338,19 +357,19 @@ bind = $mainMod, 9, workspace, 9
 bind = $mainMod, 0, workspace, 10
 
 # Move active window to a workspace with mainMod + SHIFT + [0-9]
-bind = $mainMod SHIFT, 1, movetoworkspace, 1
-bind = $mainMod SHIFT, 2, movetoworkspace, 2
-bind = $mainMod SHIFT, 3, movetoworkspace, 3
-bind = $mainMod SHIFT, 4, movetoworkspace, 4
-bind = $mainMod SHIFT, 5, movetoworkspace, 5
-bind = $mainMod SHIFT, 6, movetoworkspace, 6
-bind = $mainMod SHIFT, 7, movetoworkspace, 7
-bind = $mainMod SHIFT, 8, movetoworkspace, 8
-bind = $mainMod SHIFT, 9, movetoworkspace, 9
+bind = $mainMod SHIFT, 1, hy3:movetoworkspace, 1
+bind = $mainMod SHIFT, 2, hy3:movetoworkspace, 2
+bind = $mainMod SHIFT, 3, hy3:movetoworkspace, 3
+bind = $mainMod SHIFT, 4, hy3:movetoworkspace, 4
+bind = $mainMod SHIFT, 5, hy3:movetoworkspace, 5
+bind = $mainMod SHIFT, 6, hy3:movetoworkspace, 6
+bind = $mainMod SHIFT, 7, hy3:movetoworkspace, 7
+bind = $mainMod SHIFT, 8, hy3:movetoworkspace, 8
+bind = $mainMod SHIFT, 9, hy3:movetoworkspace, 9
 
 # Example special workspace (scratchpad)
-bind = $mainMod, Comma, togglespecialworkspace, magic
-bind = $mainMod SHIFT, Comma, movetoworkspace, special:magic
+bind = $mainMod, Period, togglespecialworkspace, magic
+bind = $mainMod SHIFT, Period, movetoworkspace, special:magic
 
 # Scroll through existing workspaces with mainMod + scroll
 bind = $mainMod, mouse_down, workspace, e+1
@@ -359,6 +378,7 @@ bind = $mainMod, mouse_up, workspace, e-1
 # Move/resize windows with mainMod + LMB/RMB and dragging
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
+bindn = , mouse:272, hy3:focustab, mouse
 
 bind = $mainMod SHIFT CONTROL, q, exec, poweroff
 bind = $mainMod CONTROL SHIFT, l, exec, hyprlock & disown; systemctl suspend

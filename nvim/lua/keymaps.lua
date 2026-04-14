@@ -1,5 +1,6 @@
 vim.api.nvim_set_keymap('n', '<esc>', ':noh<return><esc>', {noremap = true})
 
+
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<CR>', {noremap = true})
 
