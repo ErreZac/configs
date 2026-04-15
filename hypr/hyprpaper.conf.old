@@ -1,0 +1,11 @@
+# preload = /usr/share/backgrounds/default-dark.xjl
+# wallpaper = eDP-1,/usr/share/backgrounds/default-dark.xjl
+
+# preload = /home/zac/.backgrounds/wallpapers/0305.jpg
+# preload = /home/zac/.backgrounds/wallpapers/scot3.jpg
+# wallpaper = eDP-1,/home/zac/.backgrounds/wallpapers/scot3.jpg
+# wallpaper = HDMI-A-1,/home/zac/.backgrounds/wallpapers/scot3.jpg
+
+preload = /home/zac/.backgrounds/wallpapers/0258.jpg
+wallpaper = eDP-1,/home/zac/.backgrounds/wallpapers/0258.jpg
+wallpaper = HDMI-A-1,/home/zac/.backgrounds/wallpapers/0258.jpg
