@@ -47,11 +47,6 @@ button {
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -2px @text;
-}
-
 #workspaces button {
     padding: 0 10px;
     background-color: transparent;
@@ -59,13 +54,14 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: @bright-cyan;
-    color: @base;
+    background: @base2;
+    color: @yellow;
+    border: 1px solid;
 }
 
 #workspaces button.active {
     border: 1px solid;
-    color: @yellow;
+    color: @cyan;
     /* box-shadow: inset 0 -3px #ffffff; */
 }
 #workspaces button.focused {
