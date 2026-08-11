@@ -41,8 +41,9 @@ local menu        = "fuzzel --launch-prefix=\"uwsm app --\""
 -------------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("uwsm app -- waybar")
-    hl.exec_cmd("uwsm app -- hyprpaper")
+    -- hl.exec_cmd("uwsm app -- waybar")
+    hl.exec_cmd("uwsm app -- noctalia")
+    -- hl.exec_cmd("uwsm app -- hyprpaper")
     hl.exec_cmd("uwsm app -- gnome-keyring-daemon --start")
 end)
 
@@ -81,16 +82,16 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 1,
-        gaps_out = 2,
+        gaps_in  = 8,
+        gaps_out = 16,
         border_size = 2,
 
         col = {
             active_border   = {
-                colors = {"rgba(004ec9b0)", "rgba(00c586c0)"},
+                colors = {"rgb(6a9589)", "rgb(c8c093)"},
                 angle = 45
             },
-            inactive_border = "rgba(00808080)",
+            inactive_border = "rgb(1f1f28)",
         },
 
         resize_on_border = false,
@@ -108,11 +109,11 @@ hl.config({
 
         shadow = {
             enabled      = true,
-            range        = 50,
-            render_power = 4,
-            color        = "rgba(00202020)",
-            color_inactive = "rgba(00202020)",
-            offset = {5, 5},
+            range        = 20,
+            render_power = 2,
+            color        = "rgb(1f1f28)",
+            color_inactive = "rgb(727169)",
+            offset = {2, 2},
         },
 
         blur = {
@@ -368,8 +369,8 @@ hl.bind("SUPER + SHIFT + M",
 
 -- Waybar
 
-hl.bind("SUPER + SHIFT + R",
-    hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
+-- hl.bind("SUPER + SHIFT + R",
+--     hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
 
 
 -- Screenshot

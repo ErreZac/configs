@@ -31,6 +31,8 @@ fish/*
 
 !kitty
 
+!noctalia/
+
 !nvim
 nvim/*.json
 
